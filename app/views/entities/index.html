@@ -1,0 +1,36 @@
+<div class="row-fluid">
+    <div class="span12">
+        <h3>List of Entities</h3>
+        <input class="span2" placeholder="Search..." ng-model="filterCriteria" type="text">
+        <table class="table table-condensed table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Status</th>
+                    <th>Category</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="entity in entities |filter:filterCriteria track by entity.id">
+                    <td>{{ entity.name }}</td>
+                    <td>{{ entity.description }}</td>
+                    <td>{{ entity.address }}</td>
+                    <td>{{ entity.email }}</td>
+                    <td>{{ entity.phone }}</td>
+                    <td>{{ entity.entityStatus|capitalize }}</td>
+                    <td>{{ entity.category }}</td>
+                    <td>
+                        <a href="{{ RouteManager.entities.edit|path:{id: entity.id} }}" class="btn btn-mini btn-primary">Edit</a>
+                        <button ng-click="delete($index)" class="btn btn-mini btn-danger">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="{{ RouteManager.entities.new|path }}" class="btn btn-primary">Add New Entity</a>
+    </div>
+</div>

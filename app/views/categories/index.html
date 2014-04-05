@@ -1,0 +1,29 @@
+<div class="row-fluid">
+    <div class="span12">
+        <h3>List of Categories</h3>
+        <input class="span2" placeholder="Search..." ng-model="filterCriteria" type="text">
+        <table class="table table-condensed table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="category in categories | filter:filterCriteria track by category.id">
+                    <td>{{ category.name }}</td>
+                    <td>{{ category.description }}</td>
+                    <td>
+                        <a href="{{ RouteManager.categories.edit | path:{id: category.id} }}"
+                           class="btn btn-mini btn-primary">Edit</a>
+                        <button ng-click="delete($index)" class="btn btn-mini btn-danger">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="pull-left">
+            <a href="{{RouteManager.categories.new|path}}" class="btn btn-primary">New Category</a>
+        </div>
+    </div>
+</div>

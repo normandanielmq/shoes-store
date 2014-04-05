@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" ng-app="quegcApp" ng-controller="MainCtrl">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Queg-c Aqui! ... by DotCreek</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <base href="/"></base>
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+</head>
+
+<body>
+    <div id="loading" ng-show="showLoading"><img src="images/loading.gif"></div>
+    <!--[if lt IE 7]>
+  <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="bower_components/es5-shim/es5-shim.js"></script>
+  <script src="bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="#">Queg-c!</a>
+                <div class="nav-collapse collapse">
+                    <p class="navbar-text pull-right">
+                        Logged in as <a href="#" class="navbar-link">Username</a>
+                    </p>
+                    <ul class="nav">
+                        <li ng-class="{active: isActive(RouteManager.home)}">
+                            <a href="{{ RouteManager.home|path }}">Home</a>
+                        </li>
+                        <li ng-class="{active: isActive(RouteManager.categories.index)}">
+                            <a href="{{ RouteManager.categories.index|path }}">Categories</a>
+                        </li>
+                        <li ng-class="{active: isActive(RouteManager.complaints.index)}">
+                            <a href="{{ RouteManager.complaints.index|path }}">Complaints</a>
+                        <li ng-class="{active: isActive(RouteManager.entities.index)}">
+                            <a href="{{ RouteManager.entities.index|path }}">Entities</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12" ng-view="">
+            </div>
+        </div>
+    </div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+    var _gaq = [
+        ['_setAccount', 'UA-XXXXX-X'],
+        ['_trackPageview']
+    ];
+    (function(d, t) {
+        var g = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        g.src = '//www.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g, s)
+    }(document, 'script'));
+    </script>
+
+    <script src="bower_components/angular/angular.js"></script>
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/directives.js"></script>
+    <script src="scripts/filters.js"></script>
+    <script src="scripts/constants.js"></script>
+
+    <script src="scripts/controllers/main_controller.js"></script>
+    <script src="scripts/controllers/home.js"></script>
+                        <!-- CATEGORIES -->
+    <script src="scripts/controllers/articles/index_controller.js"></script>
+    <script src="scripts/controllers/articles/new_controller.js"></script>
+    <script src="scripts/controllers/articles/edit_controller.js"></script>
+
+                        <!-- COMPLAINTS -->
+    <script src="scripts/controllers/complaints/index_controller.js"></script>
+    <script src="scripts/controllers/complaints/new_controller.js"></script>
+    <script src="scripts/controllers/complaints/edit_controller.js"></script>
+
+                        <!-- USERS -->
+    <script src="scripts/controllers/users/new_controller.js"></script>
+    <script src="scripts/controllers/users/login_controller.js"></script>
+
+                        <!-- ENTITIES -->
+    <script src="scripts/controllers/stores/index_controller.js"></script>
+    <script src="scripts/controllers/stores/new_controller.js"></script>
+    <script src="scripts/controllers/stores/edit_controller.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/plugins.js -->
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/bootstrap-sass/js/bootstrap-affix.js"></script>
+    <script src="bower_components/bootstrap-sass/js/bootstrap-alert.js"></script>
+    <script src="bower_components/bootstrap-sass/js/bootstrap-dropdown.js"></script>
+    <script src="bower_components/bootstrap-sass/js/bootstrap-tooltip.js"></script>
+    <script src="bower_components/bootstrap-sass/js/bootstrap-modal.js"></script>
+    <script src="bower_components/bootstrap-sass/js/bootstrap-transition.js"></script>
+    <script src="bower_components/bootstrap-sass/js/bootstrap-button.js"></script>
+    <script src="bower_components/bootstrap-sass/js/bootstrap-popover.js"></script>
+    <script src="bower_components/bootstrap-sass/js/bootstrap-typeahead.js"></script>
+    <script src="bower_components/bootstrap-sass/js/bootstrap-carousel.js"></script>
+    <script src="bower_components/bootstrap-sass/js/bootstrap-scrollspy.js"></script>
+    <script src="bower_components/bootstrap-sass/js/bootstrap-collapse.js"></script>
+    <script src="bower_components/bootstrap-sass/js/bootstrap-tab.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/modules.js -->
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="scripts/services/complaint.js"></script>
+    <script src="scripts/services/category.js"></script>
+    <script src="scripts/services/entity.js"></script>
+    <script src="scripts/services/user.js"></script>
+    <script src="scripts/services/login.js"></script>
+    <script src="scripts/services/http_request_interceptor.js"></script>
+    <!-- endbuild -->
+
+</body>
+
+</html>

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="images/ico/favicon.png">
+    <base href="/"></base>
+    <title>Super Shoes</title>
+    <!-- build:css styles/main.css -->
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- font-awesome CSS -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- jquery-ui CSS -->
+    <link href="css/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/my-css.css" rel="stylesheet">
+
+    <!-- endbuild -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="js/vendor/html5shiv.js"></script>
+    <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+</head>
+
+<body ng-app="shoesStore" ng-controller="MainCtrl">
+<div id="loading" ng-show="showLoading"><img src="images/loading.gif"></div>
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser
+    today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better
+    experience this site.</p>
+<![endif]-->
+<!-- header section starts -->
+<header>
+<!-- header top section starts -->
+<div class="header-top">
+    <div class="container">
+        <div class="row">
+            <!-- top bar menu -->
+            <div class="col-sm-8">
+                <ul class="top-bar-menu">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Default welcome msg!</a></li>
+                </ul>
+            </div>
+            <!-- language and currency selection section -->
+            <div class="col-sm-4 hidden">
+                <div class="top-bar-left">
+                    <div class="lan-cur-ops">
+                        <select class="currency">
+                            <option>USD</option>
+                            <option>GBP</option>
+                            <option>EUR</option>
+                        </select>
+                    </div>
+
+                    <div class="lan-cur-ops">
+                        <select class="language">
+                            <option>English</option>
+                            <option>French</option>
+                            <option>German</option>
+                            <option>Italian</option>
+                            <option>Spanish</option>
+                            <option>Russian</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- header top section ends -->
+
+<!-- header main section starts -->
+<div class="header-main">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <!-- logo section starts  -->
+                <div class="logo-wrapper">
+                    <a href="{{ RouteManager.home|path }}" class="logo">
+                        <img src="images/logo.png" alt="logo">
+                    </a>
+                </div>
+                <!-- logo section ends  -->
+            </div>
+
+            <div class="col-md-12">
+                <!-- header top shopping cart button -->
+                <div class="dropdown ht-cart ht-fl">
+                    <p>Shopping Cart: <span>$0.00</span></p>
+                    <a data-toggle="dropdown" href="#" class="button-cart">Cart</a>
+
+                    <div class="dropdown-menu content" role="menu">
+
+                        <div class="mini-cart-info">
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <td class="cart-head">Recently added items</td>
+                                </tr>
+                                <tr>
+                                    <td class="image">
+                                        <a href="#"><img src="images/products/item-10.jpg" alt="product image"></a>
+                                    </td>
+                                    <td class="name">
+                                        <a href="#">
+                                            <span class="mc-heading">Strapless Ruffled</span>
+                                        </a>
+                                        <span class="mc-price">2 x $1,090.50</span>
+                                    </td>
+                                    <td class="remove">
+                                        <a href="#"><span class="fa fa-times"></span></a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="image">
+                                        <a href="#"><img src="images/products/item-10.jpg" alt="product image"></a>
+                                    </td>
+                                    <td class="name">
+                                        <a href="#">
+                                            <span class="mc-heading">Strapless Ruffled</span>
+                                        </a>
+                                        <span class="mc-price">2 x $1,090.50</span>
+                                    </td>
+                                    <td class="remove">
+                                        <a href="#"><span class="fa fa-times"></span></a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mini-cart-checkout">
+                            <a href="#" class="btn btn-checkout">Proceed to checkout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <!-- main navigation menu starts -->
+                <nav class="clearfix">
+                    <ul id="nav" class="main-nav">
+                        <li class="shop-submenu-area selected">
+                            <a href="{{ RouteManager.home|path }}">Home</a>
+                        </li>
+                        <li class="shop-submenu-area">
+                            <a href="#">Shop</a>
+                            <ul class="shop-megamenu row">
+                                <li class="col-md-4">
+                                    <ul class="ssm-rr">
+                                        <li class="category">
+                                            Shop By Department
+                                        </li>
+                                        <li><a href="#">Athletic Shoes</a></li>
+                                        <li><a href="#">Boots</a></li>
+                                        <li><a href="#">Clogs & Mules</a></li>
+                                        <li><a href="#">Pumps</a></li>
+                                        <li><a href="#">Sandals</a></li>
+                                        <li><a href="#">Shoe Racks & Organization</a></li>
+                                        <li><a href="#">Socks, Tights & More</a></li>
+                                        <li><a href="#">Wedges</a></li>
+                                    </ul>
+                                </li>
+                                <li class="col-md-4">
+                                    <ul class="ssm-rr">
+                                        <li class="category">
+                                            Shop By Heel Height
+                                        </li>
+                                        <li><a href="#">Low: Less than 2"</a></li>
+                                        <li><a href="#">Medium: 2"-3"</a></li>
+                                        <li><a href="#">High: over 3"-4"</a></li>
+                                        <li><a href="#">Ultra High: over 4"</a></li>
+                                    </ul>
+                                    <ul class="ssm-rr">
+                                        <li class="category">
+                                            Shop By Trend
+                                        </li>
+                                        <li><a href="#">Embellished</a></li>
+                                        <li><a href="#">Fall Color featuring Berry</a></li>
+                                    </ul>
+                                </li>
+                                <li class="col-md-4">
+                                    <ul class="ssm-rr">
+                                        <li class="category">
+                                            Shop By Brand
+                                        </li>
+                                        <li><a href="#">Betsey Johnson</a></li>
+                                        <li><a href="#">Foot Petals</a></li>
+                                        <li><a href="#">Jessica Simpson</a></li>
+                                        <li><a href="#">Joan Boyce</a></li>
+                                        <li><a href="#">Me Too</a></li>
+                                        <li><a href="#">Naturalizer</a></li>
+                                        <li><a href="#">New Balance</a></li>
+                                        <li><a href="#">Sam Edelman</a></li>
+                                        <li><a href="#">Sporto</a></li>
+                                        <li><a href="#">Steven by Steve Madden</a></li>
+                                    </ul>
+                                </li>
+                                <li class="col-md-4">
+                                    <span class="nav-banner">
+                                      <img src="images/nav-banner-1.jpg" alt="">
+                                    </span>
+                                </li>
+                                <li class="col-md-4">
+                                    <span class="nav-banner">
+                                      <img src="images/nav-banner-2.jpg" alt="">
+                                    </span>
+                                </li>
+                                <li class="col-md-4">
+                                    <span class="nav-banner">
+                                      <img src="images/nav-banner-3.jpg" alt="">
+                                    </span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="shop-submenu-area">
+                            <a href="product-grid.html">View</a>
+                            <ul class="shop-submenu ssm-rr">
+                                <li><a href="product-grid.html">Grid View side bar</a></li>
+                                <li><a href="product-list.html">List View side bar</a></li>
+                                <li><a href="product-grid-full.html">Grid View full width</a></li>
+                                <li><a href="product-list-full.html">List View full width</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="single.html">Single Item</a></li>
+                        <li><a href="checkout.html">Checkout</a></li>
+                        <li><a href="cart.html">Shopping Cart</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li class="shop-submenu-area">
+                            <a href="product-grid.html">View</a>
+                            <ul class="shop-submenu ssm-rr">
+                                <li><a href="product-grid.html">Articles</a></li>
+                                <li><a href="product-list.html">Stores</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="top-search">
+                        <input type="text">
+                        <input type="submit" value="">
+                    </form>
+                </nav>
+                <!-- main navigation menu ends -->
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- header main section ends -->
+</header>
+<!-- header section ends -->
+
+<!-- main body section starts -->
+<div class="main-body-wrapper" ng-view>
+
+</div>
+
+<div class="home-feature block-25">
+    <div class="container">
+        <!-- features section starts -->
+        <div class="row">
+            <div class="col-md-3">
+                <!-- feature single section -->
+                <div class="feature feature-one">
+                    <i class="fa fa-location-arrow"></i>
+
+                    <h1>Free Shipping</h1>
+
+                    <p>Free Shipping on Orders Over $100</p>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <!-- feature single section -->
+                <div class="feature feature-two">
+                    <i class="fa fa-gift"></i>
+
+                    <h1>Buy 1 Get 1</h1>
+
+                    <p>Apply For Longtime Customers</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <!-- feature single section -->
+                <div class="feature feature-three">
+                    <i class="fa fa-money"></i>
+
+                    <h1>Money Back !</h1>
+
+                    <p>Money Back Guarantee 30 days</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <!-- feature single section -->
+                <div class="feature feature-four">
+                    <i class="fa fa-trophy"></i>
+
+                    <h1>Quality Product</h1>
+
+                    <p>Quality Commitment all Products</p>
+                </div>
+            </div>
+        </div>
+        <!-- features section ends -->
+    </div>
+</div>
+
+<!-- main body block ends -->
+
+<!-- main body section ends -->
+
+<!-- footer section starts -->
+<footer>
+    <!-- footer main area -->
+    <div class="footer-main-area">
+        <div class="container">
+            <!-- footer widget row -->
+            <div class="row footer-row-one">
+                <!-- footer widget one -->
+                <div class="col-md-3 col-sm-6 widget-area">
+                    <h1 class="widget-heading">Information</h1>
+
+                    <div class="widget-content">
+                        <ul>
+                            <li><a href="#">Our Blog</a></li>
+                            <li><a href="#">About Our Shop</a></li>
+                            <li><a href="#">Secure Shopping</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Delivery information</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- footer widget two -->
+                <div class="col-md-3 col-sm-6 widget-area">
+                    <h1 class="widget-heading">Customer Care</h1>
+
+                    <div class="widget-content">
+                        <ul>
+                            <li><a href="#">Contact us</a></li>
+                            <li><a href="#">Sitemap</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Gift Vouchers</a></li>
+                            <li><a href="#">BestSellers</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- footer widget three -->
+                <div class="col-md-3 col-sm-6 widget-area">
+                    <h1 class="widget-heading">Your Account</h1>
+
+                    <div class="widget-content">
+                        <ul>
+                            <li><a href="#">My Wishlist</a></li>
+                            <li><a href="#">Menu item Number</a></li>
+                            <li><a href="#">Menu Item four</a></li>
+                            <li><a href="#">Menu item five</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- footer widget four -->
+                <div class="col-md-3 col-sm-6 widget-area">
+                    <h1 class="widget-heading">Newsletter Subscribe</h1>
+
+                    <div class="widget-content">
+                        <p>Subscribe to be the first to know about Sales, <br>
+                            Events, and Exclusive Offers!</p>
+
+                        <form action="#" method="post" class="subscribe-form">
+                            <input type="text" placeholder="Enter your email" value="">
+                            <input type="submit" class="" value=">">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer privacy area starts -->
+    <div class="footer-privacy-area">
+        <div class="footer-privacy-area-top">
+            <div class="container">
+                <!-- footer widget row two -->
+                <div class="row footer-row-two">
+                    <!-- footer widget five -->
+                    <div class="col-md-6 widget-area widget-contact">
+                        <a href="#" class="footer-logo"><img src="images/footer-logo.png" alt=""></a>
+
+                        <div class="footer-contact">
+                            <p class="copyright-meta">Copyright© 2014 N-Shoes Store. All Rights Reserved.</p>
+
+                            <p>Mobile:<span> (00) 123 456 789</span></p>
+
+                            <p>
+                                Email: <a href="mailto:someone@example.com" target="_top">normandanielmq@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- footer widget six -->
+                    <div class="col-md-6 widget-area widget-right">
+                        <div class="widget-content">
+                            <div>
+                                <a href="#">Site Map</a>
+                                <a href="#">Advanced</a>
+                                <a href="#">Orders and Returns</a>
+                                <a href="#">Contact Us</a>
+                            </div>
+                            <p class="dev-info">Developed by <a href="#">Norman Murillo</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-privacy-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7 left-part">
+                        <ul class="footer-social">
+                            <li><span>Connect Us</span></li>
+                            <li><a href="#"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+                            <li><a href="#"><i class="fa fa-twitter-square"></i> Twitter</a></li>
+                            <li><a href="#"><i class="fa fa-pinterest-square"></i> Pinterest</a></li>
+                            <li><a href="#"><i class="fa fa-google-plus-square"></i> Google Plus</a></li>
+                        </ul>
+
+                    </div>
+                    <div class="col-md-5 offset-col-2 right-part">
+                        <ul>
+                            <li><span>Payment Method</span></li>
+                            <li><a href="#"><img class="greyscale" src="images/icon/visa.png" alt=""></a></li>
+                            <li><a href="#"><img class="greyscale" src="images/icon/amex.png" alt=""></a></li>
+                            <li><a href="#"><img class="greyscale" src="images/icon/master.png" alt=""></a></li>
+                            <li><a href="#"><img class="greyscale" src="images/icon/visa-d.png" alt=""></a></li>
+                            <li><a href="#"><img class="greyscale" src="images/icon/visa-e.png" alt=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- go to top -->
+        <a href="#" class="go-top" title="Go to top"><i class="fa fa-chevron-up"></i></a>
+
+    </div>
+    <!-- footer privacy area ends -->
+
+</footer>
+<!-- footer section ends -->
+
+<script src="js/vendor/jquery-1.8.2.min.js"></script>
+<script src="js/vendor/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/directives.js"></script>
+<script src="scripts/filters.js"></script>
+<script src="scripts/constants.js"></script>
+
+<script src="scripts/controllers/main_controller.js"></script>
+<script src="scripts/controllers/home_controller.js"></script>
+
+<!-- Articles -->
+<script src="scripts/controllers/articles/index_controller.js"></script>
+<script src="scripts/controllers/articles/new_controller.js"></script>
+<script src="scripts/controllers/articles/edit_controller.js"></script>
+
+<!-- Articles -->
+<script src="scripts/controllers/stores/index_controller.js"></script>
+<script src="scripts/controllers/stores/new_controller.js"></script>
+<script src="scripts/controllers/stores/edit_controller.js"></script>
+
+<!-- endbuild -->
+
+<!-- build:js scripts/plugins.js -->
+<script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/modules.js -->
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="scripts/services/article.js"></script>
+<script src="scripts/services/store.js"></script>
+<!-- endbuild -->
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/bootstrap.min.js"></script>
+<!-- tiny nav jQuery plugin -->
+<script src="js/tinynav.min.js"></script>
+<!-- flexslider jQuery plugin -->
+<script src="js/jquery.flexslider-min.js"></script>
+<!-- include carouFredSel plugin + helper plugins-->
+<script src="js/jquery.carouFredSel-6.2.1-packed.js"></script>
+<!-- optionally include helper plugins -->
+<script src="js/helper-plugins/jquery.mousewheel.min.js"></script>
+<script src="js/helper-plugins/jquery.touchSwipe.min.js"></script>
+<script src="js/helper-plugins/jquery.transit.min.js"></script>
+<script src="js/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
+<!-- Google maps -->
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<!-- gMap -->
+<script src="js/jquery.gmap.min.js"></script>
+<!-- auto scroll to top -->
+<script src="js/go-top.js"></script>
+
+</body>
+</html>

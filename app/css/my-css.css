@@ -1,0 +1,17 @@
+/*
+* Designed by Norman Murillo
+* normandanielmq@gmail.com
+*/
+
+/*
+* Spinner image
+*/
+#loading {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -30px; /*image width/2 */
+    margin-top: -30px; /*image height/2 */
+    z-index: 99999;
+}

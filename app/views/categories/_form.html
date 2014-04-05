@@ -1,0 +1,29 @@
+<form name="category_form" class="form-horizontal" novalidate="novalidate" ng-submit="save()">
+    <div ng-include src="'views/shared/messages.html'"></div>
+    
+	<div class="control-group">
+		<label class="control-label" for="name">Name</label>
+		<div class="controls">
+			<input type="text" id="name" name="name" ng-model="category.name"
+                   ng-class="{'input-error': category_form.name.$dirty && category_form.name.$error.required, 'input-fixed': category_form.name.$dirty && category_form.name.$valid}"
+                   placeholder="Name" required>
+      <span class="text-error" ng-show="category_form.name.$dirty && category_form.name.$error.required">Required!</span><br>
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="description">Description</label>
+		<div class="controls">
+			<textarea type="text" id="description" name="description" ng-model="category.description" placeholder="Description" required
+                      ng-class="{'input-error': category_form.description.$dirty && category_form.description.$error.required, 'input-fixed': category_form.description.$dirty && category_form.description.$valid}">
+           </textarea>
+
+            <span class="text-error" ng-show="category_form.description.$dirty && category_form.description.$error.required">Required!</span>
+		</div>
+	</div>
+     <div class="control-group">
+        <div class="controls">
+            <button type="submit" class="btn btn-success" ng-disabled="category_form.$invalid || showLoading">Done</button>
+            <a href="{{ RouteManager.categories.index|path }}" class="btn-link">Cancel</a>
+        </div>
+    </div>
+</form>

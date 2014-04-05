@@ -1,0 +1,75 @@
+<form name="complaint_form" class="form-horizontal" ng-submit="save()" novalidate>
+    <div ng-include src="'views/shared/messages.html'"></div>
+
+    <div class="control-group">
+        <label class="control-label" for="category">Category*</label>
+        <div class="controls">
+            <select ng-model="selectedCategory" name="category"
+                    required="required" ng-options="c.id as c.name for c in categories"
+                    ng-class="{'input-error': complaint_form.category.$dirty && complaint_form.category.$error.required, 'input-fixed': complaint_form.category.$dirty && complaint_form.category.$valid}">
+            </select>
+            <span class="text-error" ng-show="complaint_form.category.$error.required && complaint_form.category.$dirty">
+                Required!
+            </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="title">Entity*</label>
+        <div class="controls">
+            <select ng-model="complaint.entityId" name="entity"
+                    required="required" ng-options="e.id as e.name for e in entities | filter:selectedCategory"
+                    ng-class="{'input-error': complaint_form.entity.$dirty && complaint_form.entity.$error.required, 'input-fixed': complaint_form.entity.$dirty && complaint_form.entity.$valid}">
+            </select>
+            <span class="text-error" ng-show="complaint_form.entity.$error.required && complaint_form.entity.$dirty">
+                Required!
+            </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="title">Title*</label>
+        <div class="controls">
+            <input ng-model="complaint.title" type="text" name="title" placeholder="Title" required
+                   ng-class="{'input-error': complaint_form.title.$dirty && !complaint_form.title.$valid, 'input-fixed': complaint_form.title.$dirty && complaint_form.title.$valid}"
+                   ng-minlength="5" ng-maxlength="50">
+            <span class="text-error" ng-show="complaint_form.title.$error.minlength">Text is too short.</span>
+            <span class="text-error" ng-show="complaint_form.title.$error.maxlength">Text is too long.</span>
+            <span class="text-error" ng-show="complaint_form.title.$error.required && complaint_form.title.$dirty">
+                Required!
+            </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="body">Body*</label>
+        <div class="controls">
+            <textarea ng-model="complaint.body" type="text" name="body" placeholder="Body" required
+                      ng-class="{'input-error': complaint_form.body.$dirty && !complaint_form.body.$valid, 'input-fixed': complaint_form.body.$dirty && complaint_form.body.$valid}"
+                      ng-minlength="5" ng-maxlength="200">
+            </textarea>
+            <span class="text-error" ng-show="complaint_form.body.$error.minlength">Text is too short.</span>
+            <span class="text-error" ng-show="complaint_form.body.$error.maxlength">Text is too long.</span>
+            <span class="text-error" ng-show="complaint_form.body.$error.required && complaint_form.body.$dirty">
+                Required!
+            </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="proposal">Proposal*</label>
+        <div class="controls">
+            <textarea ng-model="complaint.proposal" type="text" name="proposal" placeholder="Proposal"  required
+                      ng-class="{'input-error': complaint_form.proposal.$dirty && complaint_form.proposal.$invalid, 'input-fixed': complaint_form.proposal.$dirty && complaint_form.proposal.$valid}"
+                      ng-minlength="5" ng-maxlength="200">
+            </textarea>
+            <span class="text-error" ng-show="complaint_form.proposal.$error.minlength">Text is too short.</span>
+            <span class="text-error" ng-show="complaint_form.proposal.$error.maxlength">Text is too long.</span>
+            <span class="text-error" ng-show="complaint_form.proposal.$error.required && complaint_form.proposal.$dirty">
+                Required!
+            </span>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <button type="submit" class="btn btn-success" ng-disabled="complaint_form.$invalid || showLoading">Send</button>
+            <a href="{{ RouteManager.complaints.index|path }}">Back to List</a>
+        </div>
+    </div>
+</form>
