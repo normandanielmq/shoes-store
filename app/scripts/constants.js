@@ -2,22 +2,16 @@
 
 app.factory('CONSTANTS', function () {
   return {
-      PARAMETERS: null, // array populated with the parameters.json content in main_controller.js
       MESSAGE: {
           SAVE_SUCCESS: 'Successfully saved.',
-          ERROR_REQUEST: 'Unable to process the request in this moment.'
+          ERROR_REQUEST: 'Unable to process the request in this moment.',
+          DELETE_CONFIRMATION: 'Are you sure you want to process this record?',
+          DELETE_RESTRICTION: 'There are data associated to this record. Unable to delete.'
       },
-      ENTITY_STATUS : {
-          ACTIVE: 'active',
-          PENDING: 'pending',
-          INACTIVE: 'inactive',
-          toArray: function(){
-              return [
-                  {status: this.ACTIVE, description:'Active'},
-                  {status: this.PENDING, description:'Pending'},
-                  {status: this.INACTIVE, description:'Inactive'}
-              ];
-          }
+      STORAGE_KEY : {
+          STORES: 'db.stores',
+          ARTICLES: 'db.articles',
+          ARTICLE_IMAGES: 'db.articleImages'
       }
   };
 });

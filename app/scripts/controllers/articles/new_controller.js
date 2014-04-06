@@ -1,20 +1,18 @@
 'use strict';
 
-app.controller('CategoryNewCtrl',
-        ['$scope', '$resource', '$location', 'Category', 'CONSTANTS',
-        function($scope, $resource, $location, Category, CONSTANTS) {
-            $scope.category = new Category({});
+app.controller('ArticlesNewCtrl', ['$scope', 'Article', 'CONSTANTS', '$location', 'Store',
+    function ($scope, Article, CONSTANTS, $location, Store) {
+        $scope.article = Article.newInstance();
+        $scope.stores = Store.query();
 
-            $scope.save = function() {
-                $scope.$parent.clearMessages($scope);
-                $scope.category.$save(
-                    function(success) {
-                        $location.path(RouteManager.categories.index);
-                    },
-                    function(error){
-                        $scope.errorMessages.push(CONSTANTS.MESSAGE.ERROR_REQUEST);
-                    }
-                );
-            };
+        $scope.save = function () {
+            $scope.clearMessages($scope);
+
+            if (Article.save($scope.article)) {
+                $location.path(RouteManager.articles.index);
+            } else {
+                $scope.errorMessages.push(CONSTANTS.MESSAGE.ERROR_REQUEST);
+            }
         }
-    ]);
+    }
+]);

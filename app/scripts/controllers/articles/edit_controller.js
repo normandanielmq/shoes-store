@@ -1,21 +1,31 @@
 'use strict';
 
-app.controller('CategoryEditCtrl', ['$scope', '$location', 'category', 'CONSTANTS',
-    function ($scope, $location, category, CONSTANTS) {
-        $scope.category = category;
+app.controller('ArticlesEditCtrl',
+  ['$scope', 'Article', 'CONSTANTS', '$location', '$routeParams', 'Store',
+      function ($scope, Article, CONSTANTS, $location, $routeParams, Store) {
+          // Retrieve data when they are ready
+          var stop = $scope.$watch(function () {
+              return $scope.showLoading;
+          }, function (isRunning) {
+              if (!isRunning) {
+                  $scope.article = Article.get($routeParams.id);
+                  $scope.stores = Store.query();
+                  stop();
+                  if($scope.article == null){
+                      $location.path(RouteManager.articles.index);
+                  }
+              }
+          });
 
-        $scope.save = function () {
-            $scope.$parent.clearMessages($scope);
+          $scope.save = function () {
+              $scope.clearMessages($scope);
 
-            // Update the model
-            $scope.category.$update(
-              function (success) {
-                  $location.path(RouteManager.categories.index);
-              },
-              function (error) {
+              var success = Article.update($scope.article);
+              if (success) {
+                  $location.path(RouteManager.articles.index);
+              } else {
                   $scope.errorMessages.push(CONSTANTS.MESSAGE.ERROR_REQUEST);
               }
-            );
-        }
-    }
-]);
+          }
+      }
+  ]);

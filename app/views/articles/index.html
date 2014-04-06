@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 admin-area">
+            <h1 class="admin-section-title">Articles</h1>
+            <div ng-include src="'views/shared/messages.html'"></div>
+            <input class="col-md-3 input-lg" placeholder="Search..." ng-model="filterCriteria" type="text">
+            <table class="table table-condensed table-hover">
+                <thead>
+                <tr>
+                    <th class="col-md-3"><a href="" ng-click="predicate = 'name'; reverse=!reverse">Name</a></th>
+                    <th class="col-md-4"><a href="" ng-click="predicate = 'description'; reverse=!reverse">Description</a></th>
+                    <th class="col-md-1"><a href="" ng-click="predicate = 'price'; reverse=!reverse">Price</a></th>
+                    <th class="col-md-3"><a href="" ng-click="predicate = 'store'; reverse=!reverse">Store</a></th>
+                    <th class="text-center">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="article in articles | filter:filterCriteria | orderBy:predicate:reverse track by article.id">
+                    <td>{{ article.name }}</td>
+                    <td>{{ article.description }}</td>
+                    <td>{{ article.price|number }}</td>
+                    <td>{{ article.store.name }}</td>
+                    <td class="text-center">
+                        <a href="{{ RouteManager.articles.edit | path:{id: article.id} }}"
+                           class="btn btn-admin btn-checkout">Edit</a>
+                        <a href="" class="btn btn-admin btn-danger"
+                                ng-click="remove(article.id)">Remove</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="text-right">
+                <a href="{{RouteManager.articles.new|path}}" class="btn btn-primary">New Article</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 admin-area">
+            <h1 class="admin-section-title">Stores</h1>
+            <div ng-include src="'views/shared/messages.html'"></div>
+            <input class="col-md-3 input-lg" placeholder="Search..." ng-model="filterCriteria" type="text">
+            <table class="table table-condensed table-hover">
+                <thead>
+                <tr>
+                    <th class="col-md-4"><a href="" ng-click="predicate = 'name'; reverse=!reverse">Name</a></th>
+                    <th class="col-md-5"><a href="" ng-click="predicate = 'address'; reverse=!reverse">Address</a></th>
+                    <th class="text-center">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="store in stores | filter:filterCriteria | orderBy:predicate:reverse track by store.id">
+                    <td>{{ store.name }}</td>
+                    <td>{{ store.address }}</td>
+                    <td class="text-center">
+                        <a href="{{ RouteManager.stores.edit | path:{id: store.id} }}"
+                           class="btn btn-admin btn-checkout">Edit</a>
+                        <a href="" class="btn btn-admin btn-danger"
+                                ng-click="remove(store.id)">Remove</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="text-center">
+                <a href="{{RouteManager.stores.new|path}}" class="btn btn-primary">New Store</a>
+            </div>
+        </div>
+    </div>
+</div>

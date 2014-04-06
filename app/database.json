@@ -1,0 +1,317 @@
+{
+    "stores": [
+        {
+            "id": "1",
+            "name": "Super Shoes: Happy Feet",
+            "address": "New York City"
+        },
+        {
+            "id": "2",
+            "name": "Super Shoes: Sad Feet",
+            "address": "Los Angeles"
+        },
+        {
+            "id": "3",
+            "name": "Super Shoes: Alien Feet",
+            "address": "Dallas"
+        }
+    ],
+    "articles": [
+        {
+            "id": "1",
+            "name": "Inceptos Orci Hac Libero",
+            "price": "250",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
+            "totalInShelf": "5",
+            "totalInVault": "10",
+            "storeId": "1"
+        },
+        {
+            "id": "2",
+            "name": "Inceptos Orci Hac Libero",
+            "price": "250",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
+            "totalInShelf": "4",
+            "totalInVault": "8",
+            "storeId": "1"
+        },
+        {
+            "id": "3",
+            "name": "Inceptos Orci Hac Libero",
+            "price": "250",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
+            "totalInShelf": "1",
+            "totalInVault": "0",
+            "storeId": "1"
+        },
+        {
+            "id": "4",
+            "name": "Inceptos Orci Hac Libero",
+            "price": "250",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
+            "totalInShelf": "1",
+            "totalInVault": "0",
+            "storeId": "1"
+        },
+        {
+            "id": "5",
+            "name": "Inceptos Orci Hac Libero",
+            "price": "250",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
+            "totalInShelf": "0",
+            "totalInVault": "0",
+            "storeId": "1"
+        },
+        {
+            "id": "6",
+            "name": "Inceptos Orci Hac Libero",
+            "price": "175",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
+            "totalInShelf": "0",
+            "totalInVault": "0",
+            "storeId": "2"
+        },
+        {
+            "id": "7",
+            "name": "Inceptos Orci Hac Libero",
+            "price": "175",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
+            "totalInShelf": "5",
+            "totalInVault": "10",
+            "storeId": "2"
+        },
+        {
+            "id": "8",
+            "name": "Inceptos Orci Hac Libero",
+            "price": "175",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
+            "totalInShelf": "4",
+            "totalInVault": "8",
+            "storeId": "2"
+        },
+        {
+            "id": "9",
+            "name": "Inceptos Orci Hac Libero",
+            "price": "175",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
+            "totalInShelf": "1",
+            "totalInVault": "0",
+            "storeId": "2"
+        },
+        {
+            "id": "10",
+            "name": "Inceptos Orci Hac Libero",
+            "price": "175",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
+            "totalInShelf": "1",
+            "totalInVault": "0",
+            "storeId": "2"
+        },
+        {
+            "id": "11",
+            "name": "Inceptos Orci Hac Libero",
+            "price": "125",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
+            "totalInShelf": "0",
+            "totalInVault": "0",
+            "storeId": "3"
+        },
+        {
+            "id": "12",
+            "name": "Inceptos Orci Hac Libero",
+            "price": "125",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
+            "totalInShelf": "0",
+            "totalInVault": "0",
+            "storeId": "3"
+        },
+        {
+            "id": "13",
+            "name": "Inceptos Orci Hac Libero",
+            "price": "125",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
+            "totalInShelf": "5",
+            "totalInVault": "10",
+            "storeId": "3"
+        },
+        {
+            "id": "14",
+            "name": "Inceptos Orci Hac Libero",
+            "price": "125",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
+            "totalInShelf": "4",
+            "totalInVault": "8",
+            "storeId": "3"
+        },
+        {
+            "id": "15",
+            "name": "Inceptos Orci Hac Libero",
+            "price": "125",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
+            "totalInShelf": "1",
+            "totalInVault": "0",
+            "storeId": "3"
+        },
+        {
+            "id": "16",
+            "name": "Inceptos Orci Hac Libero",
+            "price": "125",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
+            "totalInShelf": "1",
+            "totalInVault": "0",
+            "storeId": "3"
+        }
+    ],
+    "articleImages": [
+        {
+            "id": "1",
+            "articleId": "1",
+            "imagePath": "item-10.jpg"
+        },
+        {
+            "id": "2",
+            "articleId": "1",
+            "imagePath": "item-20.jpg"
+        },
+        {
+            "id": "3",
+            "articleId": "2",
+            "imagePath": "item-30.jpg"
+        },
+        {
+            "id": "4",
+            "articleId": "2",
+            "imagePath": "item-40.jpg"
+        },
+        {
+            "id": "5",
+            "articleId": "3",
+            "imagePath": "item-50.jpg"
+        },
+        {
+            "id": "6",
+            "articleId": "3",
+            "imagePath": "item-60.jpg"
+        },
+        {
+            "id": "7",
+            "articleId": "4",
+            "imagePath": "item-70.jpg"
+        },
+        {
+            "id": "8",
+            "articleId": "4",
+            "imagePath": "item-80.jpg"
+        },
+        {
+            "id": "9",
+            "articleId": "5",
+            "imagePath": "item-90.jpg"
+        },
+        {
+            "id": "10",
+            "articleId": "5",
+            "imagePath": "item-100.jpg"
+        },
+        {
+            "id": "11",
+            "articleId": "6",
+            "imagePath": "item-110.jpg"
+        },
+        {
+            "id": "12",
+            "articleId": "6",
+            "imagePath": "item-120.jpg"
+        },
+        {
+            "id": "13",
+            "articleId": "7",
+            "imagePath": "item-130.jpg"
+        },
+        {
+            "id": "14",
+            "articleId": "7",
+            "imagePath": "item-140.jpg"
+        },
+        {
+            "id": "15",
+            "articleId": "8",
+            "imagePath": "item-150.jpg"
+        },
+        {
+            "id": "16",
+            "articleId": "8",
+            "imagePath": "item-160.jpg"
+        },
+        {
+            "id": "17",
+            "articleId": "9",
+            "imagePath": "item-170.jpg"
+        },
+        {
+            "id": "18",
+            "articleId": "9",
+            "imagePath": "item-180.jpg"
+        },
+        {
+            "id": "19",
+            "articleId": "10",
+            "imagePath": "item-190.jpg"
+        },
+        {
+            "id": "20",
+            "articleId": "10",
+            "imagePath": "item-200.jpg"
+        },
+        {
+            "id": "21",
+            "articleId": "11",
+            "imagePath": "item-210.jpg"
+        },
+        {
+            "id": "22",
+            "articleId": "11",
+            "imagePath": "item-220.jpg"
+        },
+        {
+            "id": "23",
+            "articleId": "12",
+            "imagePath": "item-230.jpg"
+        },
+        {
+            "id": "24",
+            "articleId": "12",
+            "imagePath": "item-240.jpg"
+        },
+        {
+            "id": "25",
+            "articleId": "13",
+            "imagePath": "item-250.jpg"
+        },
+        {
+            "id": "26",
+            "articleId": "13",
+            "imagePath": "item-260.jpg"
+        },
+        {
+            "id": "27",
+            "articleId": "14",
+            "imagePath": "item-270.jpg"
+        },
+        {
+            "id": "28",
+            "articleId": "14",
+            "imagePath": "item-280.jpg"
+        },
+        {
+            "id": "29",
+            "articleId": "15",
+            "imagePath": "item-290.jpg"
+        },
+        {
+            "id": "30",
+            "articleId": "15",
+            "imagePath": "item-300.jpg"
+        }
+    ]
+}

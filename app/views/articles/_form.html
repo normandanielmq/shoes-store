@@ -1,0 +1,65 @@
+<div class="col-md-6">
+    <form name="form" class="form-horizontal" novalidate="novalidate" ng-submit="save()" role="form">
+        <div ng-include src="'views/shared/messages.html'"></div>
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" ng-model="article.name"
+                   placeholder="Name" class="form-control" required/>
+            <span class="text-danger"
+                  ng-show="form.name.$dirty && form.name.$error.required">Required!</span>
+        </div>
+        
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" ng-model="article.description"
+                      placeholder="Address" class="form-control" required>
+            </textarea>
+            <span class="text-danger"
+                  ng-show="form.description.$dirty && form.description.$error.required">Required!</span>
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="text" only-numbers id="price" name="price" ng-model="article.price"
+                      placeholder="0.00" class="form-control text-right" required ng-maxlength="14" />
+            <span class="text-danger"
+                  ng-show="form.price.$dirty && form.price.$error.required">Required!</span>
+            <span class="text-danger" ng-show="form.price.$error.maxlength">Value is too high.</span>
+        </div>
+
+        <div class="form-group">
+            <label for="totalInShelf">Total in shelf</label>
+            <input type="text" only-numbers id="totalInShelf" name="totalInShelf" ng-model="article.totalInShelf"
+                   placeholder="0" class="form-control text-right" required ng-maxlength="11"/>
+            <span class="text-danger text-right"
+                  ng-show="form.totalInShelf.$dirty && form.totalInShelf.$error.required">Required!</span>
+            <span class="text-danger" ng-show="form.totalInShelf.$error.maxlength">Value is too high.</span>
+        </div>
+
+        <div class="form-group">
+            <label for="totalInVault">Total in vault</label>
+            <input type="text" only-numbers id="totalInVault" name="totalInVault" ng-model="article.totalInVault"
+                   placeholder="0" class="form-control text-right" required ng-maxlength="11"/>
+            <span class="text-danger"
+                  ng-show="form.totalInVault.$dirty && form.totalInVault.$error.required">Required!</span>
+            <span class="text-danger" ng-show="form.totalInVault.$error.maxlength">Value is too high.</span>
+        </div>
+
+        <div class="form-group">
+            <label for="store">Store</label>
+            <select class="form-control" ng-model="article.storeId" name="store" id="store"
+                    required="required" ng-options="s.id as s.name for s in stores">
+            </select>
+            <span class="text-danger"
+                  ng-show="form.store.$dirty && form.store.$error.required">Required!</span>
+        </div>
+
+        <div class="double-spaced">
+            <button type="submit" class="btn btn-checkout btn-default"
+                    ng-disabled="form.$invalid || showLoading">Done
+            </button>
+            <a href="{{ RouteManager.articles.index|path }}" class="btn btn-link ">Cancel</a>
+        </div>
+    </form>
+</div>

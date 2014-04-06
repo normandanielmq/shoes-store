@@ -7,11 +7,47 @@
 * Spinner image
 */
 #loading {
-    display: none;
     position: fixed;
     left: 50%;
     top: 50%;
     margin-left: -30px; /*image width/2 */
     margin-top: -30px; /*image height/2 */
     z-index: 99999;
+}
+
+.admin-area {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    color: black;
+}
+
+/* Admin index views titles */
+.admin-section-title {
+    text-align: center;
+    font-size: 3em;
+    color: #d1d1d1;
+    background-color: #c96e5e;
+    text-shadow: 2px 3px 3px rgba(0, 0, 0, .5);
+    -webkit-text-stroke: 1px #fff;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, .6)));
+}
+
+/* Button used in admin index views*/
+.btn-admin {
+    min-width: 54px;
+    min-height: 20px;
+    width: 100px;
+    height: 30px;
+    padding: 5px;
+}
+
+.form-buttons-area {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    text-align: left;
+}
+
+.double-spaced {
+    margin-top: 5%;
+    margin-bottom: 5%;
 }

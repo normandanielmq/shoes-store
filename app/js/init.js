@@ -185,29 +185,29 @@
         });
         //  Responsive layout, resizing the items
 
-        $('#carousel-client').carouFredSel({
-          circular: false,
-          infinite: false,
-          responsive: true,
-          auto: false,
-          prev: '#prev3',
-          next: '#next3',
-          mousewheel: true,
-          swipe: {
-            onMouse: false,
-            onTouch: true
-          },
-          width: '100%',
-          scroll: 1,
-          items: {
-            width: 280,
-            height: '48%',  //  optionally resize item-height
-            visible: {
-              min: 1,
-              max: 5
-            }
-          }
-        });
+//        $('#carousel-client').carouFredSel({
+//          circular: false,
+//          infinite: false,
+//          responsive: true,
+//          auto: false,
+//          prev: '#prev3',
+//          next: '#next3',
+//          mousewheel: true,
+//          swipe: {
+//            onMouse: false,
+//            onTouch: true
+//          },
+//          width: '100%',
+//          scroll: 1,
+//          items: {
+//            width: 280,
+//            height: '48%',  //  optionally resize item-height
+//            visible: {
+//              min: 1,
+//              max: 5
+//            }
+//          }
+//        });
   });
 
 

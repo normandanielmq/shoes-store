@@ -252,10 +252,10 @@
                         <li><a href="cart.html">Shopping Cart</a></li>
                         <li><a href="contact.html">Contact</a></li>
                         <li class="shop-submenu-area">
-                            <a href="product-grid.html">View</a>
+                            <a href="#">Admin</a>
                             <ul class="shop-submenu ssm-rr">
-                                <li><a href="product-grid.html">Articles</a></li>
-                                <li><a href="product-list.html">Stores</a></li>
+                                <li><a href="{{ RouteManager.articles.index|path }}">Articles</a></li>
+                                <li><a href="{{ RouteManager.stores.index|path }}">Stores</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -496,6 +496,7 @@
 <!-- build:js scripts/plugins.js -->
 <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/angular-local-storage/angular-local-storage.js"></script>
 <!-- endbuild -->
 
 <!-- build:js scripts/modules.js -->
@@ -505,6 +506,8 @@
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="scripts/services/article.js"></script>
 <script src="scripts/services/store.js"></script>
+<script src="scripts/services/article_images.js"></script>
+<script src="scripts/services/database_fixtures.js"></script>
 <!-- endbuild -->
 
 <!-- Bootstrap core JavaScript
