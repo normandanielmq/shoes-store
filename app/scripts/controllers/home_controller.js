@@ -15,7 +15,7 @@ app.controller('HomeCtrl', ['$scope', 'Article', 'CONSTANTS', 'ArticleImage',
                     slide.images = ArticleImage.getImagesByArticle(slide.id);
                     slide.active = false;
                 });
-                slide[0].active = true;
+                $scope.slides[0].active = true;
 
                 stop();
             }
