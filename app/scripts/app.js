@@ -106,8 +106,8 @@ app.config(['$routeProvider', '$locationProvider',
       localStorageServiceProvider.setPrefix('');
   }])
 
-  .run(['CONSTANTS', '$rootScope', 'DatabaseFixtures', 'PurchasedArticle',
-      function (CONSTANTS, $rootScope, DatabaseFixtures, PurchasedArticle) {
+  .run(['CONSTANTS', '$rootScope', 'DatabaseFixtures', 'PurchasedArticle', '$anchorScroll',
+      function (CONSTANTS, $rootScope, DatabaseFixtures, PurchasedArticle, $anchorScroll) {
           $rootScope.RouteManager = RouteManager;
           $rootScope.CONSTANTS = CONSTANTS; // Global constants
 
@@ -128,8 +128,8 @@ app.config(['$routeProvider', '$locationProvider',
           $rootScope.$on('$viewContentLoaded', function () {
 
               // Scroll to Top
-              $rootScope.$broadcast('scroll.scrollTop')
-
+              //$rootScope.$broadcast('scroll.scrollTop')
+              $anchorScroll();
           });
 
 

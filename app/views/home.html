@@ -63,59 +63,41 @@
 
 <!-- main body block starts -->
 <div class="container main-body-block">
-<!-- top panel starts -->
-<div class="top-panel row block-45">
-    <!-- panel one -->
-    <div class="col-sm-4 ">
-        <figure class="panel panel-one">
-            <img src="images/panel-1.jpg" alt="">
-            <figcaption>
-                <a href="{{ RouteManager.shop.list|path }}" class="btn-panel">shop now</a>
-            </figcaption>
-        </figure>
-    </div>
-    <!-- panel two -->
-    <div class="col-sm-4">
-        <figure class="panel panel-two">
-            <img src="images/panel-2.jpg" alt="">
-            <figcaption>
-                <a href="{{ RouteManager.shop.list|path }}" class="btn-panel">shop now</a>
-            </figcaption>
-        </figure>
-    </div>
-    <!-- panel three -->
-    <div class="col-sm-4">
-        <figure class="panel panel-three">
-            <img src="images/panel-3.jpg" alt="">
-            <figcaption>
-                <a href="#{{ RouteManager.shop.list|path }}" class="btn-panel">shop now</a>
-            </figcaption>
-        </figure>
-    </div>
-</div>
-<!-- top panel ends -->
-
-<!-- home page featured product section starts -->
-<div class="row block-45" f>
-    <div class="col-md-12">
-        <div style="height: 305px">
-            <carousel interval="myInterval">
-                <slide ng-repeat="slide in slides" active="slide.active">
-                    <img ng-src="images/products/{{ slide.images[0].imagePath }}" style="margin:auto;">
-
-                    <div class="carousel-caption">
-                        <h4>Slide {{$index}}</h4>
-
-                        <p>{{slide.name}}</p>
-                    </div>
-                </slide>
-            </carousel>
+    <!-- top panel starts -->
+    <div class="top-panel row block-45">
+        <!-- panel one -->
+        <div class="col-sm-4 ">
+            <figure class="panel panel-one">
+                <img src="images/panel-1.jpg" alt="">
+                <figcaption>
+                    <a href="{{ RouteManager.shop.list|path }}" class="btn-panel">shop now</a>
+                </figcaption>
+            </figure>
         </div>
-
+        <!-- panel two -->
+        <div class="col-sm-4">
+            <figure class="panel panel-two">
+                <img src="images/panel-2.jpg" alt="">
+                <figcaption>
+                    <a href="{{ RouteManager.shop.list|path }}" class="btn-panel">shop now</a>
+                </figcaption>
+            </figure>
+        </div>
+        <!-- panel three -->
+        <div class="col-sm-4">
+            <figure class="panel panel-three">
+                <img src="images/panel-3.jpg" alt="">
+                <figcaption>
+                    <a href="{{ RouteManager.shop.list|path }}" class="btn-panel">shop now</a>
+                </figcaption>
+            </figure>
+        </div>
     </div>
-</div>
+    <!-- top panel ends -->
+
+    <!-- home page featured product section starts -->
+
 </div>
 <!-- home page featured product section ends -->
-</div>
 <!-- jQuery plugin hook and custom js -->
 <script src="js/init.js"></script>

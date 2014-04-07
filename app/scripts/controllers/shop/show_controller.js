@@ -20,7 +20,7 @@ app.controller('ShopShowCtrl',
                 stop();
             }
         });
-
+        $scope.imageIndex = 0;
         // Quantities drop-down
         $scope.quantityList = [];
         for(var i = 1; i <= CONSTANTS.MAX_QUANTITY_ON_PURCHASE; i++){
@@ -36,13 +36,13 @@ app.controller('ShopShowCtrl',
 
             // Add the purchase to the shopping cart
             if (PurchasedArticle.save($scope.purchase)){
-
+                $scope.purchasedArticles.push($scope.purchase);
+                $scope.updatePaymentInfo();
                 // Redirect to the shopping cart view
                 $location.path(RouteManager.shop.cart);
             } else {
                 $scope.errorMessages.push(CONSTANTS.MESSAGE.ERROR_REQUEST);
             }
         }
-
     }
 ]);

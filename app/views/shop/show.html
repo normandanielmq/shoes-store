@@ -1,82 +1,94 @@
 <div class="container block-45">
-<!-- product details starts -->
-<div class="row pd-detail-mb">
-    <!-- display details cloud zoom flexslider -->
-    <div class="col-md-5">
-        <div class="pds-holder">
-            <div class="panel">
-                <!-- slider -->
-                <ul rn-carousel class="image">
-                    <li ng-repeat="image in article.images">
-                        <img ng-src="images/products/{{image.imagePath }}">
+    <!-- product details starts -->
+    <div class="row pd-detail-mb">
+        <!-- display details cloud zoom flexslider -->
+        <div class="col-md-5">
+            <div class="pds-holder">
+                <div class="panel">
+                    <!-- slider -->
+                    <div>
+                        <ul rn-carousel rn-carousel-index="imageIndex" rn-carousel-control="true">
+                            <li ng-repeat="image in article.images"
+                                ng-style="{'background-image': 'url(images/products/' + image.imagePath + ')'}">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product-badge"
+                         ng-class="{sale: article.flag == CONSTANTS.ARTICLE_FLAG.SALE, new: article.flag == CONSTANTS.ARTICLE_FLAG.HOT}">
+                        Sale
+                    </div>
+                    <div class="thumbs">
+                        <a ng-repeat="image in article.images" href="" ng-click="$parent.imageIndex=$index" >
+                            <div class="thumb"
+                                 ng-style="{'background-image': 'url(images/products/' + image.imagePath + ')'}"
+                                 ng-class="{'is-active': ($parent.imageIndex==$index)}">
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- display detail description and options -->
+        <div class="col-md-7">
+            <div ng-include src="'views/shared/messages.html'"></div>
+            <!-- product display detail description -->
+            <div class="product-display-detail-desc block-90">
+
+                <h1 class="item-head">{{ article.name }}</h1>
+                <span class="item-price"><span class="prev-price">$ {{ article.price*1.1|number:2 }}</span>$ {{ article.price|number:2 }}</span>
+
+                <ul class="item-brief-desc">
+                    <li><span>Store:</span>{{ article.store.name }}</li>
+                    <li><span>Address:</span>{{ article.store.address }}</li>
+                    <li><span>Availability:</span>{{ article.totalInShelf + article.totalInVault > 0 ? 'In Stock' :
+                        'Sold Out' }}
                     </li>
+                    <li><span>Product Code:</span>{{ article.id }}</li>
                 </ul>
-            </div>
-            <div class="product-badge"
-                 ng-class="{sale: article.flag == CONSTANTS.ARTICLE_FLAG.SALE, new: article.flag == CONSTANTS.ARTICLE_FLAG.HOT}">
-                Sale
-            </div>
-        </div>
-    </div>
-    <!-- display detail description and options -->
-    <div class="col-md-7">
-        <div ng-include src="'views/shared/messages.html'"></div>
-        <!-- product display detail description -->
-        <div class="product-display-detail-desc block-90">
 
-            <h1 class="item-head">{{ article.name }}</h1>
-            <span class="item-price"><span class="prev-price">$ {{ article.price*1.1|number:2 }}</span>$ {{ article.price|number:2 }}</span>
+                <div class="row">
+                    <div class="col-sm-6 ">
+                        <div class="item-short item-color">
+                            <h1>Color</h1>
 
-            <ul class="item-brief-desc">
-                <li><span>Store:</span>{{ article.store.name }}</li>
-                <li><span>Address:</span>{{ article.store.address }}</li>
-                <li><span>Availability:</span>{{ article.totalInShelf + article.totalInVault > 0 ? 'In Stock' : 'Sold Out' }}</li>
-                <li><span>Product Code:</span>{{ article.id }}</li>
-            </ul>
+                            <div class="select-wrap">
+                                <select ng-model="purchase.color" name="color" class="select select-dd"
+                                        required="required" ng-options="c.color as c.color for c in CONSTANTS.COLORS">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="item-short item-color">
+                            <h1>Size</h1>
 
-            <div class="row">
-                <div class="col-sm-6 ">
-                    <div class="item-short item-color">
-                        <h1>Color</h1>
+                            <div class="select-wrap">
+                                <select ng-model="purchase.size" name="size" class="select select-dd"
+                                        required="required" ng-options="s.size as s.size for s in CONSTANTS.SIZES">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="item-short item-color">
+                            <h1>Qty</h1>
 
-                        <div class="select-wrap">
-                            <select ng-model="purchase.color" name="color" class="select select-dd"
-                                    required="required" ng-options="c.color as c.color for c in CONSTANTS.COLORS">
-                            </select>
+                            <div class="select-wrap">
+                                <select ng-model="purchase.quantity" name="quantity" class="select select-dd"
+                                        required="required" ng-options="q.value as q.value for q in quantityList">
+                                </select>
+                            </div>
                         </div>
                     </div>
-                    <div class="item-short item-color">
-                        <h1>Size</h1>
 
-                        <div class="select-wrap">
-                            <select ng-model="purchase.size" name="size" class="select select-dd"
-                                    required="required" ng-options="s.size as s.size for s in CONSTANTS.SIZES">
-                            </select>
-                        </div>
-                    </div>
-                    <div class="item-short item-color">
-                        <h1>Qty</h1>
-
-                        <div class="select-wrap">
-                            <select ng-model="purchase.quantity" name="quantity" class="select select-dd"
-                                    required="required" ng-options="q.value as q.value for q in quantityList">
-                            </select>
-                        </div>
+                    <div class="col-sm-6 item-short item-size" ng-if="article.totalInShelf + article.totalInVault > 0">
+                        <a href="" ng-click="addToCart()" class="add-to-cart">Add to Cart</a>
                     </div>
                 </div>
 
-                <div class="col-sm-6 item-short item-size" ng-if="article.totalInShelf + article.totalInVault > 0">
-                    <a ng-click="addToCart()" class="add-to-cart">Add to Cart</a>
+                <div class="item-quick-overview">
+                    <h1>Quick Overview:</h1>
+
+                    <p>{{ article.description }}</p>
                 </div>
+
             </div>
-
-            <div class="item-quick-overview">
-                <h1>Quick Overview:</h1>
-
-                <p>{{ article.description }}</p>
-            </div>
-
         </div>
     </div>
-</div>
 </div>
