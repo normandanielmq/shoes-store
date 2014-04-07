@@ -24,7 +24,8 @@
             "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
             "totalInShelf": "5",
             "totalInVault": "10",
-            "storeId": "1"
+            "storeId": "1",
+            "flag": "sale"
         },
         {
             "id": "2",
@@ -33,7 +34,8 @@
             "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
             "totalInShelf": "4",
             "totalInVault": "8",
-            "storeId": "1"
+            "storeId": "1",
+            "flag": "none"
         },
         {
             "id": "3",
@@ -42,7 +44,8 @@
             "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
             "totalInShelf": "1",
             "totalInVault": "0",
-            "storeId": "1"
+            "storeId": "1",
+            "flag": "hot"
         },
         {
             "id": "4",
@@ -51,7 +54,8 @@
             "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
             "totalInShelf": "1",
             "totalInVault": "0",
-            "storeId": "1"
+            "storeId": "1",
+            "flag": "hot"
         },
         {
             "id": "5",
@@ -60,7 +64,8 @@
             "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
             "totalInShelf": "0",
             "totalInVault": "0",
-            "storeId": "1"
+            "storeId": "1",
+            "flag": "none"
         },
         {
             "id": "6",
@@ -69,7 +74,8 @@
             "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
             "totalInShelf": "0",
             "totalInVault": "0",
-            "storeId": "2"
+            "storeId": "2",
+            "flag": "hot"
         },
         {
             "id": "7",
@@ -78,7 +84,8 @@
             "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
             "totalInShelf": "5",
             "totalInVault": "10",
-            "storeId": "2"
+            "storeId": "2",
+            "flag": "none"
         },
         {
             "id": "8",
@@ -87,7 +94,8 @@
             "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
             "totalInShelf": "4",
             "totalInVault": "8",
-            "storeId": "2"
+            "storeId": "2",
+            "flag": "none"
         },
         {
             "id": "9",
@@ -96,7 +104,8 @@
             "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
             "totalInShelf": "1",
             "totalInVault": "0",
-            "storeId": "2"
+            "storeId": "2",
+            "flag": "sale"
         },
         {
             "id": "10",
@@ -105,7 +114,8 @@
             "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
             "totalInShelf": "1",
             "totalInVault": "0",
-            "storeId": "2"
+            "storeId": "2",
+            "flag": "hot"
         },
         {
             "id": "11",
@@ -114,7 +124,8 @@
             "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
             "totalInShelf": "0",
             "totalInVault": "0",
-            "storeId": "3"
+            "storeId": "3",
+            "flag": "none"
         },
         {
             "id": "12",
@@ -123,7 +134,8 @@
             "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
             "totalInShelf": "0",
             "totalInVault": "0",
-            "storeId": "3"
+            "storeId": "3",
+            "flag": "none"
         },
         {
             "id": "13",
@@ -132,7 +144,8 @@
             "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
             "totalInShelf": "5",
             "totalInVault": "10",
-            "storeId": "3"
+            "storeId": "3",
+            "flag": "hot"
         },
         {
             "id": "14",
@@ -141,7 +154,8 @@
             "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
             "totalInShelf": "4",
             "totalInVault": "8",
-            "storeId": "3"
+            "storeId": "3",
+            "flag": "none"
         },
         {
             "id": "15",
@@ -150,16 +164,8 @@
             "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
             "totalInShelf": "1",
             "totalInVault": "0",
-            "storeId": "3"
-        },
-        {
-            "id": "16",
-            "name": "Inceptos Orci Hac Libero",
-            "price": "125",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Incididunt ut labore et dolore magna aliqua.",
-            "totalInShelf": "1",
-            "totalInVault": "0",
-            "storeId": "3"
+            "storeId": "3",
+            "flag": "sale"
         }
     ],
     "articleImages": [

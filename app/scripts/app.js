@@ -16,7 +16,14 @@ var securePrefix = '',
           index: securePrefix + '/articles/',
           edit: securePrefix + '/articles/:id/edit',
           new: securePrefix + '/articles/new'
-      },      
+      },
+
+      // Shop
+      shop: {
+          list: '/shop/',
+          show: '/shop/:id/show',
+          cart: '/shop/cart'
+      },
 
       // Transform the route in a valid value
       path: function (newRoute, variables) {
@@ -42,6 +49,20 @@ app.config(['$routeProvider', '$locationProvider',
             .when(RouteManager.home, {
                 templateUrl: 'views/home.html',
                 controller: 'HomeCtrl'
+            })
+
+            // Shop
+            .when(RouteManager.shop.list, {
+                templateUrl: 'views/shop/list.html',
+                controller: 'ShopListCtrl'
+            })
+            .when(RouteManager.shop.show, {
+                templateUrl: 'views/shop/show.html',
+                controller: 'ShopShowCtrl'
+            })
+            .when(RouteManager.shop.cart, {
+                templateUrl: 'views/shop/cart.html',
+                controller: 'ShopCartCtrl'
             })
 
             // Stores
@@ -84,8 +105,9 @@ app.config(['$routeProvider', '$locationProvider',
       localStorageServiceProvider.setPrefix('');
   }])
 
-  .run(['CONSTANTS', '$rootScope', 'DatabaseFixtures', function (CONSTANTS, $rootScope, DatabaseFixtures) {
-      $rootScope.RouteManager = RouteManager; // Declared in app.js
+  .run(['CONSTANTS', '$rootScope', 'DatabaseFixtures',
+      function (CONSTANTS, $rootScope, DatabaseFixtures) {
+      $rootScope.RouteManager = RouteManager;
       $rootScope.CONSTANTS = CONSTANTS; // Global constants
 
       // Load database on startup
@@ -100,6 +122,14 @@ app.config(['$routeProvider', '$locationProvider',
           scope.successMessages = [];
           scope.infoMessages = [];
       }
+
+      /* Got to top when content is loaded */
+      $rootScope.$on('$viewContentLoaded', function () {
+
+          // Scroll to Top
+          $rootScope.$broadcast('scroll.scrollTop')
+
+      });
   }])
 
 ;

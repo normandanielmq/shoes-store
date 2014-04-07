@@ -1,7 +1,7 @@
 'use strict';
 
-app.factory('Article', ['localStorageService', 'CONSTANTS', 'ArticleImages',
-    function (localStorageService, CONSTANTS, ArticleImages) {
+app.factory('Article', ['localStorageService', 'CONSTANTS', 'ArticleImage',
+    function (localStorageService, CONSTANTS, ArticleImage) {
         return new function () {
             var self = this;
 
@@ -16,7 +16,8 @@ app.factory('Article', ['localStorageService', 'CONSTANTS', 'ArticleImages',
                     price: '',
                     totalInShelf: '',
                     totalInVault: '',
-                    storeId: ''
+                    storeId: '',
+                    flag: CONSTANTS.ARTICLE_FLAG.NONE
                 }
             };
 
@@ -41,7 +42,7 @@ app.factory('Article', ['localStorageService', 'CONSTANTS', 'ArticleImages',
              * @returns Array
              */
             this.query = function () {
-                return localStorageService.get(CONSTANTS.STORAGE_KEY.ARTICLES);
+                return localStorageService.get(CONSTANTS.STORAGE_KEY.ARTICLES) || [];
             };
 
             /**
@@ -96,7 +97,7 @@ app.factory('Article', ['localStorageService', 'CONSTANTS', 'ArticleImages',
                 var success = true;
                 try {
                     // Remove images references
-                    success = ArticleImages.removeImagesByArticle(articleId);
+                    success = ArticleImage.removeImagesByArticle(articleId);
                     if (success) {
 
                         // Remove the record

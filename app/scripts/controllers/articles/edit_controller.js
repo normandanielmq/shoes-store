@@ -3,6 +3,9 @@
 app.controller('ArticlesEditCtrl',
   ['$scope', 'Article', 'CONSTANTS', '$location', '$routeParams', 'Store',
       function ($scope, Article, CONSTANTS, $location, $routeParams, Store) {
+          // Data used to populate the flag dropdown
+          $scope.flagList = CONSTANTS.ARTICLE_FLAG.toArray();
+
           // Retrieve data when they are ready
           var stop = $scope.$watch(function () {
               return $scope.showLoading;

@@ -37,7 +37,7 @@ app.factory('Store', ['localStorageService', 'CONSTANTS', 'Article',
              * @returns Array
              */
             this.query = function () {
-                return localStorageService.get(CONSTANTS.STORAGE_KEY.STORES);
+                return localStorageService.get(CONSTANTS.STORAGE_KEY.STORES) || [];
             };
 
             /**

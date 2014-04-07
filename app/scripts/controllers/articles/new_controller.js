@@ -2,9 +2,19 @@
 
 app.controller('ArticlesNewCtrl', ['$scope', 'Article', 'CONSTANTS', '$location', 'Store',
     function ($scope, Article, CONSTANTS, $location, Store) {
-        $scope.article = Article.newInstance();
+
+        // Data used to populate the flag drop-down
+        $scope.flagList = CONSTANTS.ARTICLE_FLAG.toArray();
+
+        // Data used to populate the stores drop-down
         $scope.stores = Store.query();
 
+        // Create a new empty object
+        $scope.article = Article.newInstance();
+
+        /**
+         * Updates changes into the database
+         */
         $scope.save = function () {
             $scope.clearMessages($scope);
 

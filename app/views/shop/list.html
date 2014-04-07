@@ -1,0 +1,44 @@
+<!-- main body block starts -->
+<div class="container main-body-block category-product-block block-45">
+    <div class="row double-spaced">
+        <!-- Category product view starts -->
+        <div class="col-md-12 category-product-display">
+
+            <!-- product display row -->
+            <div class="product-display-grid">
+                <!-- row one -->
+                <div class="row">
+                    <!-- product item -->
+                    <div class="col-sm-6 col-md-3" ng-repeat="article in articles track by article.id" >
+                        <div class="product-box">
+                            <div>
+                                <div class="product-item-visual">
+                                    <img class="product-image" ng-src="images/products/{{ article.images[0].imagePath }}" alt="product">
+                                </div>
+                                <div class="product-badge"
+                                     ng-class="{sale: article.flag == CONSTANTS.ARTICLE_FLAG.SALE, new: article.flag == CONSTANTS.ARTICLE_FLAG.HOT}">>
+                                    Sale
+                                </div>
+
+                                <div class="product-item-desc">
+                                    <a href="{{ RouteManager.shop.show|path:{id: article.id} }}"><h1>{{ article.name }}</h1></a>
+
+                                    <div class="item-price item-price-sale">
+                                        $ {{ article.price|number:2 }}
+                                    </div>
+                                </div>
+                                <div class="price-item-desc-detail">
+                                    <a class="add-to-cart" href="{{ RouteManager.shop.show|path:{id: article.id} }}">
+                                        Details
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Category product view ends -->
+    </div>
+</div>
+<!-- main body block ends -->

@@ -1,0 +1,106 @@
+<div class="container block-45">
+<div class="row">
+<div class="col-md-12">
+    <!-- page title -->
+    <div class="page-title">
+        <h1 class="page-title-head">Shopping Cart</h1>
+        <div ng-include src="'views/shared/messages.html'"></div>
+    </div>
+</div>
+<!-- shopping cart section starts -->
+<div class="col-md-12 shopping-cart-block">
+    <div class="row">
+        <!-- shopping cart container  -->
+        <div class="col-md-9">
+            <div class="cart-area">
+                <!-- heading row -->
+                <div class="headers row">
+                    <div class="product-name col-xs-5">Product Name</div>
+                    <div class="price col-xs-2">Unit Price</div>
+                    <div class="product-quantity col-xs-2">QTy</div>
+                    <div class="subtotal-price col-xs-2">SubTotal</div>
+                    <div class="remove col-xs-1"></div>
+                </div>
+                <!-- item row -->
+                <div class="row" ng-repeat="purchasedArticle in purchasedArticles track by purchasedArticle.id">
+                    <div class="col-xs-12">
+                        <div class="cart-row">
+                            <div class="product-name col-xs-5">
+
+                                <figure>
+                                    <img ng-src="images/products/{{ purchasedArticle.article.images[0].imagePath }}" alt=""/>
+                                    <figcaption class="product-title">
+                                        <h2>{{ purchasedArticle.article.name }}</h2>
+                                        <ul>
+                                            <li>Color: <span>{{ purchasedArticle.color }}</span></li>
+                                            <li>Size: <span>{{ purchasedArticle.size }}</span></li>
+                                        </ul>
+                                    </figcaption>
+                                </figure>
+
+
+                            </div>
+                            <div class="price col-xs-2">
+                                <span class="currency">$</span><span class="value">{{ purchasedArticle.article.price|number:2 }}</span>
+                            </div>
+                            <div class="product-quantity col-xs-2">
+                                <div class="product-display-no">
+                                    <div class="select-wrap-ff">
+                                        <select ng-model="purchasedArticle.quantity" name="quantity" class="select select-ff"
+                                                required="required"
+                                                ng-options="q.value as q.value for q in quantityList">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="subtotal-price col-xs-2">
+                                <span class="currency">$</span><span class="value">
+                                    {{ purchasedArticle.article.price*purchasedArticle.quantity|number:2 }}
+                                </span>
+                            </div>
+                            <div class="remove col-xs-1">
+                                <a ng-click="remove(purchasedArticle.id)"><i class="fa fa-times"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cart-btn-group">
+                    <a href="{{ RouteManager.shop.list }}">Continue shopping</a>
+                    <a ng-click="clearShoppingCart()">Clear shopping cart price</a>
+                </div>
+            </div>
+
+        </div>
+        <!-- shopping cart sidebar container  -->
+        <div class="col-md-3">
+            <div class="shopping-cart-sidebar">
+
+                <div class="shopping-cart-sidebar-container">
+                    <!-- total price section -->
+                    <div class="total-price">
+                        <div class="st">
+                            <span class="pull-left">Sub Total:</span><span class="pull-right">$ {{ paymentInfo.subTotal|number:2 }}</span>
+                        </div>
+                        <div class="st">
+                            <span class="pull-left">Tax:</span><span class="pull-right">{{ paymentInfo.taxes|number:2 }}</span>
+                        </div>
+                        <div class="st">
+                            <span class="pull-left">Shipping:</span><span class="pull-right">free</span>
+                        </div>
+                        <div class="gt">
+                            <span class="pull-left">Grand Total:</span><span class="pull-right">$ {{ paymentInfo.total|number:2 }}</span>
+                        </div>
+                        <a class="btn btn-primary btn-theme-color">Proceed to checkout</a>
+                        <a href="{{ RouteManager.shop.list }}" class="btn btn-link">Continue shopping</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- shopping cart section ends -->
+</div>
+
+</div>

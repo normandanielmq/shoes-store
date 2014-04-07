@@ -54,39 +54,7 @@
 <div class="header-top">
     <div class="container">
         <div class="row">
-            <!-- top bar menu -->
-            <div class="col-sm-8">
-                <ul class="top-bar-menu">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">FAQs</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">My Account</a></li>
-                    <li><a href="#">Default welcome msg!</a></li>
-                </ul>
-            </div>
-            <!-- language and currency selection section -->
-            <div class="col-sm-4 hidden">
-                <div class="top-bar-left">
-                    <div class="lan-cur-ops">
-                        <select class="currency">
-                            <option>USD</option>
-                            <option>GBP</option>
-                            <option>EUR</option>
-                        </select>
-                    </div>
-
-                    <div class="lan-cur-ops">
-                        <select class="language">
-                            <option>English</option>
-                            <option>French</option>
-                            <option>German</option>
-                            <option>Italian</option>
-                            <option>Spanish</option>
-                            <option>Russian</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+            <span>Welcome message</span>
         </div>
     </div>
 </div>
@@ -99,7 +67,7 @@
 
             <div class="col-md-12">
                 <!-- logo section starts  -->
-                <div class="logo-wrapper">
+                <div class="logo-wrapper double-spaced">
                     <a href="{{ RouteManager.home|path }}" class="logo">
                         <img src="images/logo.png" alt="logo">
                     </a>
@@ -165,92 +133,13 @@
                 <!-- main navigation menu starts -->
                 <nav class="clearfix">
                     <ul id="nav" class="main-nav">
-                        <li class="shop-submenu-area selected">
+                        <li>
                             <a href="{{ RouteManager.home|path }}">Home</a>
                         </li>
-                        <li class="shop-submenu-area">
-                            <a href="#">Shop</a>
-                            <ul class="shop-megamenu row">
-                                <li class="col-md-4">
-                                    <ul class="ssm-rr">
-                                        <li class="category">
-                                            Shop By Department
-                                        </li>
-                                        <li><a href="#">Athletic Shoes</a></li>
-                                        <li><a href="#">Boots</a></li>
-                                        <li><a href="#">Clogs & Mules</a></li>
-                                        <li><a href="#">Pumps</a></li>
-                                        <li><a href="#">Sandals</a></li>
-                                        <li><a href="#">Shoe Racks & Organization</a></li>
-                                        <li><a href="#">Socks, Tights & More</a></li>
-                                        <li><a href="#">Wedges</a></li>
-                                    </ul>
-                                </li>
-                                <li class="col-md-4">
-                                    <ul class="ssm-rr">
-                                        <li class="category">
-                                            Shop By Heel Height
-                                        </li>
-                                        <li><a href="#">Low: Less than 2"</a></li>
-                                        <li><a href="#">Medium: 2"-3"</a></li>
-                                        <li><a href="#">High: over 3"-4"</a></li>
-                                        <li><a href="#">Ultra High: over 4"</a></li>
-                                    </ul>
-                                    <ul class="ssm-rr">
-                                        <li class="category">
-                                            Shop By Trend
-                                        </li>
-                                        <li><a href="#">Embellished</a></li>
-                                        <li><a href="#">Fall Color featuring Berry</a></li>
-                                    </ul>
-                                </li>
-                                <li class="col-md-4">
-                                    <ul class="ssm-rr">
-                                        <li class="category">
-                                            Shop By Brand
-                                        </li>
-                                        <li><a href="#">Betsey Johnson</a></li>
-                                        <li><a href="#">Foot Petals</a></li>
-                                        <li><a href="#">Jessica Simpson</a></li>
-                                        <li><a href="#">Joan Boyce</a></li>
-                                        <li><a href="#">Me Too</a></li>
-                                        <li><a href="#">Naturalizer</a></li>
-                                        <li><a href="#">New Balance</a></li>
-                                        <li><a href="#">Sam Edelman</a></li>
-                                        <li><a href="#">Sporto</a></li>
-                                        <li><a href="#">Steven by Steve Madden</a></li>
-                                    </ul>
-                                </li>
-                                <li class="col-md-4">
-                                    <span class="nav-banner">
-                                      <img src="images/nav-banner-1.jpg" alt="">
-                                    </span>
-                                </li>
-                                <li class="col-md-4">
-                                    <span class="nav-banner">
-                                      <img src="images/nav-banner-2.jpg" alt="">
-                                    </span>
-                                </li>
-                                <li class="col-md-4">
-                                    <span class="nav-banner">
-                                      <img src="images/nav-banner-3.jpg" alt="">
-                                    </span>
-                                </li>
-                            </ul>
+                        <li>
+                            <a href="{{ RouteManager.shop.list|path }}">Shop</a>
                         </li>
-                        <li class="shop-submenu-area">
-                            <a href="product-grid.html">View</a>
-                            <ul class="shop-submenu ssm-rr">
-                                <li><a href="product-grid.html">Grid View side bar</a></li>
-                                <li><a href="product-list.html">List View side bar</a></li>
-                                <li><a href="product-grid-full.html">Grid View full width</a></li>
-                                <li><a href="product-list-full.html">List View full width</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="single.html">Single Item</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
-                        <li><a href="cart.html">Shopping Cart</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="{{ RouteManager.shop.cart|path }}">Shopping Cart</a></li>
                         <li class="shop-submenu-area">
                             <a href="#">Admin</a>
                             <ul class="shop-submenu ssm-rr">
@@ -481,12 +370,17 @@
 <script src="scripts/controllers/main_controller.js"></script>
 <script src="scripts/controllers/home_controller.js"></script>
 
+<!-- Shop -->
+<script src="scripts/controllers/shop/list_controller.js"></script>
+<script src="scripts/controllers/shop/show_controller.js"></script>
+<script src="scripts/controllers/shop/cart_controller.js"></script>
+
 <!-- Articles -->
 <script src="scripts/controllers/articles/index_controller.js"></script>
 <script src="scripts/controllers/articles/new_controller.js"></script>
 <script src="scripts/controllers/articles/edit_controller.js"></script>
 
-<!-- Articles -->
+<!-- Stores -->
 <script src="scripts/controllers/stores/index_controller.js"></script>
 <script src="scripts/controllers/stores/new_controller.js"></script>
 <script src="scripts/controllers/stores/edit_controller.js"></script>
@@ -504,9 +398,10 @@
 <script src="bower_components/angular-cookies/angular-cookies.js"></script>
 <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
-<script src="scripts/services/article.js"></script>
-<script src="scripts/services/store.js"></script>
-<script src="scripts/services/article_images.js"></script>
+<script src="scripts/services/models/article.js"></script>
+<script src="scripts/services/models/store.js"></script>
+<script src="scripts/services/models/article_image.js"></script>
+<script src="scripts/services/models/purchased_article.js"></script>
 <script src="scripts/services/database_fixtures.js"></script>
 <!-- endbuild -->
 

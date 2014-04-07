@@ -16,7 +16,7 @@ app.factory('DatabaseFixtures', ['localStorageService', '$http', 'CONSTANTS', '$
 
                     // Asynchronous call to the server getting database fixtures
                     $rootScope.showLoading = true;
-                    $http.get('database.json').success(function (data) {
+                    $http.get(CONSTANTS.DATABASE_FILE).success(function (data) {
 
                         // Store data
                         localStorageService.add(CONSTANTS.STORAGE_KEY.STORES, data.stores);

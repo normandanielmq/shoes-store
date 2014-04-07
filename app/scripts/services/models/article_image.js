@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('ArticleImages', ['localStorageService', 'CONSTANTS',
+app.factory('ArticleImage', ['localStorageService', 'CONSTANTS',
     function (localStorageService, CONSTANTS) {
         return new function () {
             var self = this;
@@ -10,7 +10,7 @@ app.factory('ArticleImages', ['localStorageService', 'CONSTANTS',
              * @returns Array
              */
             this.query = function () {
-                return localStorageService.get(CONSTANTS.STORAGE_KEY.ARTICLE_IMAGES);
+                return localStorageService.get(CONSTANTS.STORAGE_KEY.ARTICLE_IMAGES) || [];
             };
 
             /**
@@ -41,6 +41,27 @@ app.factory('ArticleImages', ['localStorageService', 'CONSTANTS',
                 }
                 return success;
             };
+
+            /**
+             * Fetches for images of a specific article
+             * @param articleId
+             * @returns {Array}
+             */
+            this.getImagesByArticle = function(articleId){
+
+                // Retrieve all images
+                var articleImages = self.query(),
+                    result = [];
+
+                // Filter the array
+                angular.forEach(articleImages, function(articleImage){
+                    if (articleImage.articleId == articleId){
+                        result.push(articleImage);
+                    }
+                });
+
+                return result;
+            }
 
         };
     }

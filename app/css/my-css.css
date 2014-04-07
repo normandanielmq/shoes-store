@@ -51,3 +51,10 @@
     margin-top: 5%;
     margin-bottom: 5%;
 }
+
+.product-image {
+    width: 275px;
+    max-width: 275px;
+    height: 183px;
+    max-height: 183px;
+}
