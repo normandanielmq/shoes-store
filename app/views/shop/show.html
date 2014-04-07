@@ -1,30 +1,16 @@
+<div class="container block-45">
 <!-- product details starts -->
 <div class="row pd-detail-mb">
     <!-- display details cloud zoom flexslider -->
     <div class="col-md-5">
-        <div ng-include src="'views/shared/messages.html'"></div>
         <div class="pds-holder">
             <div class="panel">
                 <!-- slider -->
-                <div class="product-display-detail-slider">
-
-                    <div id="display-slider" class="flexslider display-slider">
-                        <ul class="slides">
-                            <li ng-repeat="image in article.images track by image.id">
-                                <img ng-src="images/products/{{ image.imagePath }}" alt=""/>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div id="display-carousel" class="flexslider display-carousel">
-                        <ul class="slides">
-                            <li ng-repeat="image in article.images track by image.id">
-                                <img ng-src="images/products/{{ image.imagePath }}" alt=""/>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
+                <ul rn-carousel class="image">
+                    <li ng-repeat="image in article.images">
+                        <img ng-src="images/products/{{image.imagePath }}">
+                    </li>
+                </ul>
             </div>
             <div class="product-badge"
                  ng-class="{sale: article.flag == CONSTANTS.ARTICLE_FLAG.SALE, new: article.flag == CONSTANTS.ARTICLE_FLAG.HOT}">
@@ -34,6 +20,7 @@
     </div>
     <!-- display detail description and options -->
     <div class="col-md-7">
+        <div ng-include src="'views/shared/messages.html'"></div>
         <!-- product display detail description -->
         <div class="product-display-detail-desc block-90">
 
@@ -91,4 +78,5 @@
 
         </div>
     </div>
+</div>
 </div>

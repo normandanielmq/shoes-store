@@ -10,15 +10,17 @@ app.controller('HomeCtrl', ['$scope', 'Article', 'CONSTANTS', 'ArticleImage',
             if (!isRunning) {
 
                 // Retrieve articles with its images
-                $scope.articles = Article.query();
-                angular.forEach($scope.articles, function (article) {
-                    article.images = ArticleImage.getImagesByArticle(article.id);
+                $scope.slides = Article.query();
+                angular.forEach($scope.slides, function (slide) {
+                    slide.images = ArticleImage.getImagesByArticle(slide.id);
+                    slide.active = false;
                 });
+                slide[0].active = true;
 
                 stop();
             }
         });
         $scope.predicate = 'name';
-
+        $scope.myInterval = 5000;
     }
 ]);

@@ -1,16 +1,5 @@
 'use strict';
 
-app.directive('datepicker', function() {
-  var linker = function(scope, element, attrs) {
-    element.datepicker();
-  }
-
-  return {
-    restrict: 'A',
-    link: linker
-  }
-});
-
 app.directive('coloredMessage',
   function() {
     return {

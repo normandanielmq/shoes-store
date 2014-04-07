@@ -41,7 +41,8 @@ var securePrefix = '',
       }
   };
 
-var app = angular.module('shoesStore', ['ngResource', 'ngRoute', 'ui.bootstrap', 'LocalStorageModule']);
+var app = angular.module('shoesStore',
+  ['ngResource', 'ngRoute', 'ui.bootstrap', 'LocalStorageModule', 'angular-carousel']);
 
 app.config(['$routeProvider', '$locationProvider',
       function ($routeProvider, $locationProvider) {

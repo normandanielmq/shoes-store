@@ -58,3 +58,7 @@
     height: 183px;
     max-height: 183px;
 }
+
+.nav, .pagination, .carousel, .panel-title a {
+    cursor: pointer;
+}

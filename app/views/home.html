@@ -98,52 +98,18 @@
 <!-- home page featured product section starts -->
 <div class="row block-45" f>
     <div class="col-md-12">
-        <div class="product-display featured-product">
-            <!-- product display tab -->
+        <div style="height: 305px">
+            <carousel interval="myInterval">
+                <slide ng-repeat="slide in slides" active="slide.active">
+                    <img ng-src="images/products/{{ slide.images[0].imagePath }}" style="margin:auto;">
 
-            <div class="tab-pane active" id="best-sale">
-                <!-- product display carousel -->
-                <div class="product-carousel">
-                    <div class="list_carousel responsive">
-                        <ul id="carousel-featured" class="carousel-product">
-                            <!-- product item -->
-                            <li ng-repeat="article in articles track by article.id">
-                                <div class="product-item-block">
-                                    <div class="product-item-visual">
-                                        <img class="product-image" ng-src="images/products/{{ article.images[0].imagePath }}" alt="product">
-                                    </div>
-                                    <div class="product-badge"
-                                         ng-class="{sale: article.flag == CONSTANTS.ARTICLE_FLAG.SALE, new: article.flag == CONSTANTS.ARTICLE_FLAG.HOT}">
-                                        Sale
-                                    </div>
+                    <div class="carousel-caption">
+                        <h4>Slide {{$index}}</h4>
 
-                                    <div class="product-item-desc">
-                                        <a href="{{ RouteManager.shop.show|path:{id: article.id} }}"><h1>{{ article.name }}</h1></a>
-
-                                        <div class="item-price item-price-sale">
-                                            <span class="prev-price">$ {{ article.price*1.1|number:2 }}</span>
-                                            $ {{ article.price|number:2 }}
-                                        </div>
-                                    </div>
-                                    <div class="price-item-desc-detail">
-                                        <a class="add-to-cart" href="{{ RouteManager.shop.show|path:{id: article.id} }}">
-                                            Details
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <div class="clearfix"></div>
-                        <a id="prev2" class="prev" href="#">
-                            <span class="fa  fa-angle-left"></span>
-                        </a>
-                        <a id="next2" class="next" href="#">
-                            <span class="fa  fa-angle-right"></span>
-                        </a>
+                        <p>{{slide.name}}</p>
                     </div>
-                </div>
-            </div>
-
+                </slide>
+            </carousel>
         </div>
 
     </div>
