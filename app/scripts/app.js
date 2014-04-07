@@ -51,7 +51,7 @@ app.config(['$routeProvider', '$locationProvider',
                 controller: 'HomeCtrl'
             })
 
-            // Shop
+              // Shop
             .when(RouteManager.shop.list, {
                 templateUrl: 'views/shop/list.html',
                 controller: 'ShopListCtrl'
@@ -65,7 +65,7 @@ app.config(['$routeProvider', '$locationProvider',
                 controller: 'ShopCartCtrl'
             })
 
-            // Stores
+              // Stores
             .when(RouteManager.stores.index, {
                 templateUrl: 'views/stores/index.html',
                 controller: 'StoresCtrl'
@@ -79,7 +79,7 @@ app.config(['$routeProvider', '$locationProvider',
                 controller: 'StoresNewCtrl'
             })
 
-            // Articles
+              // Articles
             .when(RouteManager.articles.index, {
                 templateUrl: 'views/articles/index.html',
                 controller: 'ArticlesCtrl'
@@ -91,9 +91,9 @@ app.config(['$routeProvider', '$locationProvider',
             .when(RouteManager.articles.new, {
                 templateUrl: 'views/articles/new.html',
                 controller: 'ArticlesNewCtrl'
-            })            
-            
-            // Any other not mapped route
+            })
+
+              // Any other not mapped route
             .otherwise({
                 redirectTo: RouteManager.home
             });
@@ -105,31 +105,74 @@ app.config(['$routeProvider', '$locationProvider',
       localStorageServiceProvider.setPrefix('');
   }])
 
-  .run(['CONSTANTS', '$rootScope', 'DatabaseFixtures',
-      function (CONSTANTS, $rootScope, DatabaseFixtures) {
-      $rootScope.RouteManager = RouteManager;
-      $rootScope.CONSTANTS = CONSTANTS; // Global constants
+  .run(['CONSTANTS', '$rootScope', 'DatabaseFixtures', 'PurchasedArticle',
+      function (CONSTANTS, $rootScope, DatabaseFixtures, PurchasedArticle) {
+          $rootScope.RouteManager = RouteManager;
+          $rootScope.CONSTANTS = CONSTANTS; // Global constants
 
-      // Load database on startup
-      DatabaseFixtures.load();
+          // Load database on startup
+          DatabaseFixtures.load();
 
-      /**
-       * Creates three arrays with messages to be displayed using the directive
-       * @param scope Controller $scope variable
-       */
-      $rootScope.clearMessages = function (scope) {
-          scope.errorMessages = [];
-          scope.successMessages = [];
-          scope.infoMessages = [];
-      }
+          /**
+           * Creates three arrays with messages to be displayed using the directive
+           * @param scope Controller $scope variable
+           */
+          $rootScope.clearMessages = function (scope) {
+              scope.errorMessages = [];
+              scope.successMessages = [];
+              scope.infoMessages = [];
+          }
 
-      /* Got to top when content is loaded */
-      $rootScope.$on('$viewContentLoaded', function () {
+          /* Got to top when content is loaded */
+          $rootScope.$on('$viewContentLoaded', function () {
 
-          // Scroll to Top
-          $rootScope.$broadcast('scroll.scrollTop')
+              // Scroll to Top
+              $rootScope.$broadcast('scroll.scrollTop')
 
-      });
-  }])
+          });
+
+
+          /**
+           * Updates the side panel with the payment information
+           */
+          $rootScope.updatePaymentInfo = function () {
+              var subTotal = 0;
+              angular.forEach($rootScope.purchasedArticles, function (purchasedArticle) {
+                  subTotal += purchasedArticle.article.price * purchasedArticle.quantity;
+              });
+              var taxes = subTotal * (CONSTANTS.TAX_PERCENTAGE / 100)
+              $rootScope.paymentInfo = {
+                  subTotal: subTotal,
+                  taxes: taxes,
+                  total: subTotal + taxes
+              }
+          };
+
+          // Retrieve data
+          $rootScope.purchasedArticles = PurchasedArticle.query();
+          $rootScope.updatePaymentInfo();
+
+          /**
+           * Removes a record
+           * @param index
+           */
+          $rootScope.removePurchasedArticle = function (purchasedArticleId) {
+              $rootScope.clearMessages($rootScope);
+
+              if (confirm(CONSTANTS.MESSAGE.DELETE_CONFIRMATION)) {
+                  if (PurchasedArticle.remove(purchasedArticleId)) {
+                      angular.forEach($rootScope.purchasedArticles, function (purchasedArticle, index) {
+                          if (purchasedArticle.id == purchasedArticleId) {
+                              $rootScope.purchasedArticles.splice(index, 1);
+                              $rootScope.updatePaymentInfo();
+                              return false;
+                          }
+                      });
+                  } else {
+                      $rootScope.errorMessages.push(CONSTANTS.MESSAGE.DELETE_RESTRICTION);
+                  }
+              }
+          }
+      }])
 
 ;

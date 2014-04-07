@@ -47,7 +47,7 @@
                                 <div class="product-display-no">
                                     <div class="select-wrap-ff">
                                         <select ng-model="purchasedArticle.quantity" name="quantity" class="select select-ff"
-                                                required="required"
+                                                required="required" ng-change="updatePaymentInfo()"
                                                 ng-options="q.value as q.value for q in quantityList">
                                         </select>
                                     </div>
@@ -59,15 +59,15 @@
                                 </span>
                             </div>
                             <div class="remove col-xs-1">
-                                <a ng-click="remove(purchasedArticle.id)"><i class="fa fa-times"></i></a>
+                                <a ng-click="removePurchasedArticle(purchasedArticle.id)"><i class="fa fa-times"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="cart-btn-group">
-                    <a href="{{ RouteManager.shop.list }}">Continue shopping</a>
-                    <a ng-click="clearShoppingCart()">Clear shopping cart price</a>
+                    <a href="{{ RouteManager.shop.list|path }}">Continue shopping</a>
+                    <a ng-click="clearShoppingCart()">Clear shopping cart</a>
                 </div>
             </div>
 
@@ -92,7 +92,7 @@
                             <span class="pull-left">Grand Total:</span><span class="pull-right">$ {{ paymentInfo.total|number:2 }}</span>
                         </div>
                         <a class="btn btn-primary btn-theme-color">Proceed to checkout</a>
-                        <a href="{{ RouteManager.shop.list }}" class="btn btn-link">Continue shopping</a>
+                        <a href="{{ RouteManager.shop.list|path }}" class="btn btn-link">Continue shopping</a>
                     </div>
                 </div>
 

@@ -78,8 +78,8 @@
             <div class="col-md-12">
                 <!-- header top shopping cart button -->
                 <div class="dropdown ht-cart ht-fl">
-                    <p>Shopping Cart: <span>$0.00</span></p>
-                    <a data-toggle="dropdown" href="#" class="button-cart">Cart</a>
+                    <p>Shopping Cart: <span>$ <span ng-bind="paymentInfo.total|number:2"></span></span></p>
+                    <a data-toggle="dropdown"  class="button-cart">Cart</a>
 
                     <div class="dropdown-menu content" role="menu">
 
@@ -89,33 +89,18 @@
                                 <tr>
                                     <td class="cart-head">Recently added items</td>
                                 </tr>
-                                <tr>
+                                <tr ng-repeat="purchasedArticle in purchasedArticles track by purchasedArticle.id">
                                     <td class="image">
-                                        <a href="#"><img src="images/products/item-10.jpg" alt="product image"></a>
+                                        <a ><img ng-src="images/products/{{ purchasedArticle.article.images[0].imagePath }}" alt="product image"></a>
                                     </td>
                                     <td class="name">
-                                        <a href="#">
-                                            <span class="mc-heading">Strapless Ruffled</span>
+                                        <a >
+                                            <span class="mc-heading">{{ purchasedArticle.article.name }}</span>
                                         </a>
-                                        <span class="mc-price">2 x $1,090.50</span>
+                                        <span class="mc-price">{{ purchasedArticle.quantity }} x ${{ purchasedArticle.article.price }}</span>
                                     </td>
                                     <td class="remove">
-                                        <a href="#"><span class="fa fa-times"></span></a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="image">
-                                        <a href="#"><img src="images/products/item-10.jpg" alt="product image"></a>
-                                    </td>
-                                    <td class="name">
-                                        <a href="#">
-                                            <span class="mc-heading">Strapless Ruffled</span>
-                                        </a>
-                                        <span class="mc-price">2 x $1,090.50</span>
-                                    </td>
-                                    <td class="remove">
-                                        <a href="#"><span class="fa fa-times"></span></a>
+                                        <a ng-click="removePurchasedArticle(purchasedArticle.id)"><span class="fa fa-times"></span></a>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -123,7 +108,7 @@
                         </div>
 
                         <div class="mini-cart-checkout">
-                            <a href="#" class="btn btn-checkout">Proceed to checkout</a>
+                            <a  class="btn btn-checkout">Proceed to checkout</a>
                         </div>
                     </div>
                 </div>
@@ -141,7 +126,7 @@
                         </li>
                         <li><a href="{{ RouteManager.shop.cart|path }}">Shopping Cart</a></li>
                         <li class="shop-submenu-area">
-                            <a href="#">Admin</a>
+                            <a>Admin</a>
                             <ul class="shop-submenu ssm-rr">
                                 <li><a href="{{ RouteManager.articles.index|path }}">Articles</a></li>
                                 <li><a href="{{ RouteManager.stores.index|path }}">Stores</a></li>
@@ -235,11 +220,11 @@
 
                     <div class="widget-content">
                         <ul>
-                            <li><a href="#">Our Blog</a></li>
-                            <li><a href="#">About Our Shop</a></li>
-                            <li><a href="#">Secure Shopping</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Delivery information</a></li>
+                            <li><a >Our Blog</a></li>
+                            <li><a >About Our Shop</a></li>
+                            <li><a >Secure Shopping</a></li>
+                            <li><a >Privacy Policy</a></li>
+                            <li><a >Delivery information</a></li>
                         </ul>
                     </div>
                 </div>
@@ -249,11 +234,11 @@
 
                     <div class="widget-content">
                         <ul>
-                            <li><a href="#">Contact us</a></li>
-                            <li><a href="#">Sitemap</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                            <li><a href="#">Gift Vouchers</a></li>
-                            <li><a href="#">BestSellers</a></li>
+                            <li><a >Contact us</a></li>
+                            <li><a >Sitemap</a></li>
+                            <li><a >Terms & Conditions</a></li>
+                            <li><a >Gift Vouchers</a></li>
+                            <li><a >BestSellers</a></li>
                         </ul>
                     </div>
                 </div>
@@ -263,10 +248,10 @@
 
                     <div class="widget-content">
                         <ul>
-                            <li><a href="#">My Wishlist</a></li>
-                            <li><a href="#">Menu item Number</a></li>
-                            <li><a href="#">Menu Item four</a></li>
-                            <li><a href="#">Menu item five</a></li>
+                            <li><a >My Wishlist</a></li>
+                            <li><a >Menu item Number</a></li>
+                            <li><a >Menu Item four</a></li>
+                            <li><a >Menu item five</a></li>
                         </ul>
                     </div>
                 </div>
@@ -295,7 +280,7 @@
                 <div class="row footer-row-two">
                     <!-- footer widget five -->
                     <div class="col-md-6 widget-area widget-contact">
-                        <a href="#" class="footer-logo"><img src="images/footer-logo.png" alt=""></a>
+                        <a  class="footer-logo"><img src="images/footer-logo.png" alt=""></a>
 
                         <div class="footer-contact">
                             <p class="copyright-meta">Copyright© 2014 N-Shoes Store. All Rights Reserved.</p>
@@ -311,12 +296,12 @@
                     <div class="col-md-6 widget-area widget-right">
                         <div class="widget-content">
                             <div>
-                                <a href="#">Site Map</a>
-                                <a href="#">Advanced</a>
-                                <a href="#">Orders and Returns</a>
-                                <a href="#">Contact Us</a>
+                                <a >Site Map</a>
+                                <a >Advanced</a>
+                                <a >Orders and Returns</a>
+                                <a >Contact Us</a>
                             </div>
-                            <p class="dev-info">Developed by <a href="#">Norman Murillo</a></p>
+                            <p class="dev-info">Developed by <a >Norman Murillo</a></p>
                         </div>
                     </div>
                 </div>
@@ -328,28 +313,28 @@
                     <div class="col-md-7 left-part">
                         <ul class="footer-social">
                             <li><span>Connect Us</span></li>
-                            <li><a href="#"><i class="fa fa-facebook-square"></i> Facebook</a></li>
-                            <li><a href="#"><i class="fa fa-twitter-square"></i> Twitter</a></li>
-                            <li><a href="#"><i class="fa fa-pinterest-square"></i> Pinterest</a></li>
-                            <li><a href="#"><i class="fa fa-google-plus-square"></i> Google Plus</a></li>
+                            <li><a ><i class="fa fa-facebook-square"></i> Facebook</a></li>
+                            <li><a ><i class="fa fa-twitter-square"></i> Twitter</a></li>
+                            <li><a ><i class="fa fa-pinterest-square"></i> Pinterest</a></li>
+                            <li><a ><i class="fa fa-google-plus-square"></i> Google Plus</a></li>
                         </ul>
 
                     </div>
                     <div class="col-md-5 offset-col-2 right-part">
                         <ul>
                             <li><span>Payment Method</span></li>
-                            <li><a href="#"><img class="greyscale" src="images/icon/visa.png" alt=""></a></li>
-                            <li><a href="#"><img class="greyscale" src="images/icon/amex.png" alt=""></a></li>
-                            <li><a href="#"><img class="greyscale" src="images/icon/master.png" alt=""></a></li>
-                            <li><a href="#"><img class="greyscale" src="images/icon/visa-d.png" alt=""></a></li>
-                            <li><a href="#"><img class="greyscale" src="images/icon/visa-e.png" alt=""></a></li>
+                            <li><a ><img class="greyscale" src="images/icon/visa.png" alt=""></a></li>
+                            <li><a ><img class="greyscale" src="images/icon/amex.png" alt=""></a></li>
+                            <li><a ><img class="greyscale" src="images/icon/master.png" alt=""></a></li>
+                            <li><a ><img class="greyscale" src="images/icon/visa-d.png" alt=""></a></li>
+                            <li><a ><img class="greyscale" src="images/icon/visa-e.png" alt=""></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
         <!-- go to top -->
-        <a href="#" class="go-top" title="Go to top"><i class="fa fa-chevron-up"></i></a>
+        <a  class="go-top" title="Go to top"><i class="fa fa-chevron-up"></i></a>
 
     </div>
     <!-- footer privacy area ends -->
