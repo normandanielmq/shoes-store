@@ -59,7 +59,8 @@
                                 </span>
                             </div>
                             <div class="remove col-xs-1">
-                                <a ng-click="removePurchasedArticle(purchasedArticle.id)"><i class="fa fa-times"></i></a>
+                                <button type="button" class="close" aria-hidden="true"
+                                        ng-click="removePurchasedArticle(purchasedArticle.id)">&times;</button>
                             </div>
                         </div>
                     </div>
@@ -86,7 +87,7 @@
                             <span class="pull-left">Tax:</span><span class="pull-right">{{ paymentInfo.taxes|number:2 }}</span>
                         </div>
                         <div class="st">
-                            <span class="pull-left">Shipping:</span><span class="pull-right">free</span>
+                            <span class="pull-left">Shipping:</span><span class="pull-right">{{ (paymentInfo.shipping > 0) ? (paymentInfo.shipping|number:2) : 'free'}}</span>
                         </div>
                         <div class="gt">
                             <span class="pull-left">Grand Total:</span><span class="pull-right">$ {{ paymentInfo.total|number:2 }}</span>

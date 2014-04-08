@@ -20,7 +20,7 @@
                         <a href="{{ RouteManager.stores.edit | path:{id: store.id} }}"
                            class="btn btn-admin btn-checkout">Edit</a>
                         <a href="" class="btn btn-admin btn-danger"
-                                ng-click="remove(store.id)">Remove</a>
+                                ng-click="showDeleteConfirmation(store.id)">Remove</a>
                     </td>
                 </tr>
                 </tbody>
@@ -31,3 +31,4 @@
         </div>
     </div>
 </div>
+<div ng-include="'views/shared/modal_delete_confirmation.html'"></div>

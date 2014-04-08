@@ -5,7 +5,7 @@
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" ng-model="article.name"
-                   placeholder="Name" class="form-control" required/>
+                   placeholder="Name" class="form-control" required autofocus/>
             <span class="text-danger"
                   ng-show="form.name.$dirty && form.name.$error.required">Required!</span>
         </div>

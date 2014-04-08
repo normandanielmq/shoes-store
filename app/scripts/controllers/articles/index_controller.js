@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('ArticlesCtrl', ['$scope', 'Article', 'CONSTANTS', 'Store',
-    function ($scope, Article, CONSTANTS, Store) {
+app.controller('ArticlesCtrl', ['$scope', 'Article', 'CONSTANTS', 'Store', '$anchorScroll',
+    function ($scope, Article, CONSTANTS, Store, $anchorScroll) {
 
         // Retrieve data when they are ready
         var stop = $scope.$watch(function(){
@@ -18,25 +18,39 @@ app.controller('ArticlesCtrl', ['$scope', 'Article', 'CONSTANTS', 'Store',
         });
         $scope.predicate = 'name';
 
+        // Hide the modal confirmation message by default
+        $scope.modalShown = false; // Hide all modal windows by default
+        $scope.$watch(function () {
+            return $scope.modalShown;
+        }, function (value) {
+            if (value) {
+                $anchorScroll();
+            }
+        })
+        $scope.showDeleteConfirmation = function (id) {
+            $scope.removeRecordId = id;
+            $scope.modalShown = true;
+        };
+
         /**
          * Removes a record
          * @param index
          */
-        $scope.remove = function (articleId) {
+        $scope.remove = function () {
             $scope.clearMessages($scope);
 
-            if(confirm(CONSTANTS.MESSAGE.DELETE_CONFIRMATION)){
-                if(Article.remove(articleId)){
-                    angular.forEach($scope.articles, function(article, index){
-                        if(article.id == articleId){
-                            $scope.articles.splice(index, 1);
-                            return false;
-                        }
-                    });
-                } else {
-                    $scope.errorMessages.push(CONSTANTS.MESSAGE.DELETE_RESTRICTION);
-                }
+            if(Article.remove($scope.removeRecordId)){
+                angular.forEach($scope.articles, function(article, index){
+                    if(article.id == $scope.removeRecordId){
+                        $scope.articles.splice(index, 1);
+                        $scope.successMessages.push(CONSTANTS.MESSAGE.RECORD_DELETED);
+                        return false;
+                    }
+                });
+            } else {
+                $scope.errorMessages.push(CONSTANTS.MESSAGE.DELETE_RESTRICTION);
             }
+            $scope.modalShown = false;
         }
     }
 ]);

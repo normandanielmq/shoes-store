@@ -1,0 +1,40 @@
+<div class="col-md-12">
+    <!-- header top shopping cart button -->
+    <div class="dropdown ht-cart ht-fl">
+        <p><a href="{{ RouteManager.shop.cart|path }}">Shopping Cart: <span>$ <span ng-bind="paymentInfo.total|number:2"></span></span></a></p>
+        <a href="" data-toggle="dropdown" class="button-cart">Cart</a>
+
+        <div class="dropdown-menu content" role="menu">
+
+            <div class="mini-cart-info">
+                <table>
+                    <tbody>
+                    <tr>
+                        <td class="cart-head">Recently added items</td>
+                    </tr>
+                    <tr ng-repeat="purchasedArticle in purchasedArticles track by purchasedArticle.id">
+                        <td class="image">
+                            <a href="{{ RouteManager.shop.cart|path }}"><img ng-src="images/products/{{ purchasedArticle.article.images[0].imagePath }}"
+                                    alt="product image"></a>
+                        </td>
+                        <td class="name">
+                            <a href="{{ RouteManager.shop.cart|path }}">
+                                <span class="mc-heading">{{ purchasedArticle.article.name }}</span>
+                            </a>
+                            <span class="mc-price">{{ purchasedArticle.quantity }} x ${{ purchasedArticle.article.price }}</span>
+                        </td>
+                        <td class="remove">
+                            <button type="button" class="close" aria-hidden="true"
+                                    ng-click="removePurchasedArticle(purchasedArticle.id)">&times;</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mini-cart-checkout">
+                <a class="btn btn-checkout">Proceed to checkout</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -29,7 +29,9 @@
     background-color: #c96e5e;
     text-shadow: 2px 3px 3px rgba(0, 0, 0, .5);
     -webkit-text-stroke: 1px #fff;
-    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, .6)));
+    -webkit-mask-image: gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, .6)));
+    text-stroke: 1px #fff;
+    mask-image: gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, .6)));
 }
 
 /* Button used in admin index views*/
@@ -63,7 +65,7 @@
     cursor: pointer;
 }
 
-.rn-carousel-slides li{
+.rn-carousel-slides li {
     width: 100%;
     height: 300px;
     background-repeat: no-repeat;
@@ -87,4 +89,107 @@
     width: 90px;
     height: 60px;
     transition: border 0.2s ease-in;
+}
+
+/* Modal dialogs*/
+.modal-dialog {
+    width: 60%;
+    height: 100%;
+}
+
+.modal-dialog img {
+    width: 50%;
+    height: 50%;
+}
+
+.modal-dialog p {
+    color: #802420;
+    line-height: normal;
+}
+
+/* Smartphones (portrait and landscape) */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 480px) {
+    .modal-dialog p {
+        font-size: 14px;
+    }
+}
+
+/* Desktops and laptops */
+@media only screen
+and (min-width: 1224px) {
+    .modal-dialog p {
+        font-size: 29px;
+    }
+}
+
+.modal-dialog .form-buttons-area {
+    text-align: center;
+}
+
+.ng-modal-overlay {
+    /* A dark translucent div that covers the whole screen */
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5000px;
+    background-color: #000000;
+    opacity: 0.8;
+}
+
+.ng-modal-dialog {
+    /* A centered div above the overlay with a box shadow. */
+    z-index: 10000;
+    position: absolute;
+    width: 50%; /* Default */
+
+    /* Center the dialog */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+
+    background-color: #fff;
+    box-shadow: 4px 4px 80px #000;
+    animation: mymove 4s infinite;
+    /*Safari and Chrome:*/
+    -webkit-animation: mymove 3s infinite;
+}
+
+@keyframes mymove {
+    20% {
+        box-shadow: 5px 10px 15px orange;
+    }
+}
+
+/*Safari and Chrome:*/
+@-webkit-keyframes mymove {
+    20% {
+        box-shadow: 5px 10px 15px orange;
+    }
+}
+
+.ng-modal-dialog-content {
+    padding: 10px;
+    text-align: left;
+}
+
+.ng-modal-close {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    padding: 5px;
+    cursor: hand;
+    font-size: 120%;
+    display: inline-block;
+    font-weight: bold;
+    font-family: 'arial', 'sans-serif';
+}
+
+.remove .close {
+    margin-top: 17px;
 }

@@ -132,7 +132,6 @@ app.config(['$routeProvider', '$locationProvider',
               $anchorScroll();
           });
 
-
           /**
            * Updates the side panel with the payment information
            */
@@ -141,11 +140,13 @@ app.config(['$routeProvider', '$locationProvider',
               angular.forEach($rootScope.purchasedArticles, function (purchasedArticle) {
                   subTotal += purchasedArticle.article.price * purchasedArticle.quantity;
               });
-              var taxes = subTotal * (CONSTANTS.TAX_PERCENTAGE / 100)
+              var taxes = subTotal * (CONSTANTS.TAX_PERCENTAGE / 100),
+                  shipping = subTotal + taxes > CONSTANTS.FREE_SHIPPING_OVER ? 0 : CONSTANTS.SHIPPING_COST;
               $rootScope.paymentInfo = {
                   subTotal: subTotal,
                   taxes: taxes,
-                  total: subTotal + taxes
+                  shipping: shipping,
+                  total: subTotal + taxes + shipping
               }
           };
 
@@ -160,18 +161,16 @@ app.config(['$routeProvider', '$locationProvider',
           $rootScope.removePurchasedArticle = function (purchasedArticleId) {
               $rootScope.clearMessages($rootScope);
 
-              if (confirm(CONSTANTS.MESSAGE.DELETE_CONFIRMATION)) {
-                  if (PurchasedArticle.remove(purchasedArticleId)) {
-                      angular.forEach($rootScope.purchasedArticles, function (purchasedArticle, index) {
-                          if (purchasedArticle.id == purchasedArticleId) {
-                              $rootScope.purchasedArticles.splice(index, 1);
-                              $rootScope.updatePaymentInfo();
-                              return false;
-                          }
-                      });
-                  } else {
-                      $rootScope.errorMessages.push(CONSTANTS.MESSAGE.DELETE_RESTRICTION);
-                  }
+              if (PurchasedArticle.remove(purchasedArticleId)) {
+                  angular.forEach($rootScope.purchasedArticles, function (purchasedArticle, index) {
+                      if (purchasedArticle.id == purchasedArticleId) {
+                          $rootScope.purchasedArticles.splice(index, 1);
+                          $rootScope.updatePaymentInfo();
+                          return false;
+                      }
+                  });
+              } else {
+                  $rootScope.errorMessages.push(CONSTANTS.MESSAGE.DELETE_RESTRICTION);
               }
           }
       }])

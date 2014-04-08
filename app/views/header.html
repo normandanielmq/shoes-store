@@ -1,0 +1,58 @@
+<!-- header section starts -->
+<header>
+    <!-- header top section starts -->
+    <div class="header-top">
+        <div class="container">
+            <div class="row">
+                <span>Welcome message</span>
+            </div>
+        </div>
+    </div>
+    <!-- header top section ends -->
+
+    <!-- header main section starts -->
+    <div class="header-main">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <!-- logo section starts  -->
+                    <div class="logo-wrapper double-spaced">
+                        <a href="{{ RouteManager.home|path }}" class="logo">
+                            <img src="images/logo.png" alt="logo">
+                        </a>
+                    </div>
+                    <!-- logo section ends  -->
+                </div>
+
+                <div ng-include="'views/shopping_cart_popup.html'"></div>
+
+                <div class="col-md-12">
+                    <!-- main navigation menu starts -->
+                    <nav class="clearfix">
+                        <ul id="nav" class="main-nav">
+                            <li>
+                                <a href="{{ RouteManager.home|path }}">Home</a>
+                            </li>
+                            <li>
+                                <a href="{{ RouteManager.shop.list|path }}">Shop</a>
+                            </li>
+                            <li><a href="{{ RouteManager.shop.cart|path }}">Shopping Cart</a></li>
+                            <li class="shop-submenu-area">
+                                <a href="">Admin</a>
+                                <ul class="shop-submenu ssm-rr">
+                                    <li><a href="{{ RouteManager.articles.index|path }}">Articles</a></li>
+                                    <li><a href="{{ RouteManager.stores.index|path }}">Stores</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- main navigation menu ends -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- header main section ends -->
+</header>
+<!-- header section ends -->

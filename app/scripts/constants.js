@@ -6,8 +6,9 @@ app.factory('CONSTANTS', function () {
       MESSAGE: {
           SAVE_SUCCESS: 'Successfully saved.',
           ERROR_REQUEST: 'Unable to process the request in this moment.',
-          DELETE_CONFIRMATION: 'Are you sure you want to process this record?',
-          DELETE_RESTRICTION: 'There are data associated to this record. Unable to delete.'
+          DELETE_CONFIRMATION: 'Are you sure you want to DELETE this record?',
+          DELETE_RESTRICTION: 'There are data associated to this record. Unable to delete.',
+          RECORD_DELETED: 'Record has been deleted.'
       },
       STORAGE_KEY : {
           STORES: 'db.stores',
@@ -41,6 +42,8 @@ app.factory('CONSTANTS', function () {
           {size: 'L'},
           {size: 'XL'}
       ],
-      TAX_PERCENTAGE: 10
+      TAX_PERCENTAGE: 10,
+      FREE_SHIPPING_OVER: 100,
+      SHIPPING_COST: 7
   };
 });

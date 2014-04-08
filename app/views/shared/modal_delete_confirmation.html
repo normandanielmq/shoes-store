@@ -1,0 +1,18 @@
+<modal-dialog show='$parent.modalShown' class="modal-dialog">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4">
+                <img src="images/warning-icon.jpg"/>
+            </div>
+            <div class="col-xs-7">
+                <p class="modal-dialog-text">{{ CONSTANTS.MESSAGE.DELETE_CONFIRMATION }}</p>
+            </div>
+        </div>
+        <div class="row text-right">
+            <div class="form-buttons-area">
+                <button class="btn btn-checkout btn-default" ng-click="$parent.$parent.remove()">Delete</button>
+                <button class="btn btn-link" ng-click="$parent.$parent.modalShown = false">Cancel</button>
+            </div>
+        </div>
+    </div>
+</modal-dialog>
